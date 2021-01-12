@@ -1,6 +1,7 @@
 <?php
   #creating a new connection
 
+  session_start();
   $dsn = "mysql:host=localhost;dbname=library;charset=utf8mb4";
   $username = "root";
   $password = "";
@@ -69,10 +70,11 @@
         $sql = "INSERT INTO users (email,user_name,password) VALUES ('$email','$username','$password_1')";
 
         $newResults=$conn->query($sql);
+
         //$stmt->bindParam('email', $_POST['email'],PDO::PARAM_STR);
         //$stmt->bindParam('username', $_POST['username'],PDO::PARAM_STR);
         //$stmt->bindParam('password', $_POST['password'],PDO::PARAM_STR);
-        echo "User successfully added to database";
+        echo $username. "added successfully!!";
       }
 
     }catch(Exception $e){

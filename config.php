@@ -41,6 +41,9 @@
         $num_rows = $sql->rowCount();
 
         if($num_rows===1){
+          $_SESSION['username'] = $username;
+          $_SESSION['success'] = 'You are now logged in';
+
           header("location:index.php");
         }else{
           echo $num_rows."<br>";
@@ -103,7 +106,10 @@
         $password_1 = md5($password_1);
         $sql = "INSERT INTO users (email,user_name,password) VALUES ('$email','$username','$password_1')";
         $newResults=$conn->query($sql);
-        echo ucfirst($username). "added successfully!!";
+
+        $_SESSION['username'] = $username;
+        $_SESSION['success'] = 'You are now logged in';
+        header('location:index.php');
       }
 
     }catch(Exception $e){

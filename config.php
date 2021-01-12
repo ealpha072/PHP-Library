@@ -16,6 +16,7 @@
     echo "Connection failed ".$e->getMessage();
   }
 
+  if(isset($_POST))
 
   if(isset($_POST['register'])){
     try{
@@ -74,7 +75,7 @@
         //$stmt->bindParam('email', $_POST['email'],PDO::PARAM_STR);
         //$stmt->bindParam('username', $_POST['username'],PDO::PARAM_STR);
         //$stmt->bindParam('password', $_POST['password'],PDO::PARAM_STR);
-        echo $username. "added successfully!!";
+        echo ucfirst($username). "added successfully!!";
       }
 
     }catch(Exception $e){

@@ -20,31 +20,34 @@
   }
 
   function register(){
-    $email = $username ='';
-      //check if email is empty
-      if(empty($_POST['email'])){
-        echo "Please provide an email address!!"."<br>";
-      }else{
-        $email = $_POST['email'];
-      }
-      //check if username is empty
-      if(empty($_POST['username'])){
-        echo "Username is empty"."<br>";
-      }else{
-        $username = $_POST['username'];
-      }
-      //check if password is empty
-      if(empty($_POST['password_1'])){
-        echo "Please provide a password"."<br>";
-      }else{
-        $password_1 = $_POST['password_1'];
-      }
-      //check if confirm password is empty
-      if(empty($_POST['password_2'])){
-        echo "Please confirm your password"."<br>";
-      }else{
-        $password_2 = $_POST['password_2'];
-      }
+
+    global $conn;
+
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password_1 = $_POST['password_1'];
+    $password_2 = $_POST['password_2'];
+
+    //check if email is empty
+    if(empty($email)){
+      echo "Please provide an email address!!"."<br>";
+    }
+    //check if username is empty
+    if(empty($username)){
+      echo "Username is empty"."<br>";
+    }
+    //check if password is empty
+    if(empty($password_1)){
+      echo "Please provide a password"."<br>";
+    }
+    //check if confirm password is empty
+    if(empty($password_2)){
+      echo "Please confirm your password"."<br>";
+    }
+      //check for password match
+    if(!($password_1===$password_2)){
+      echo "Password mismatch, please provide matching passwords!";
+    }
   }
 
 

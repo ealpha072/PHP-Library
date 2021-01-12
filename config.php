@@ -16,7 +16,35 @@
     echo "Connection failed ".$e->getMessage();
   }
 
-  if(isset($_POST))
+  if(isset($_POST['login'])){
+    global $conn;
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $errors=[];
+    if(empty($email)){
+      array_push($errors,"No email address provided");
+      echo "Please provide a email address";
+    }
+    if(empty($password)){
+      array_push($errors,"Please provide a password");
+      echo "Please provide a password";
+    }
+
+    if(count($errors)===0){
+      $password =md5($password);
+
+      $sql = "SELECT * FROM users where email='$email' AND password='$password'";
+      $results=mysqli_query($conn,$sql);
+
+      if(mysqli_num_row($results)===1){
+        header("location:index.php");
+      }else{
+        echo "Invalid email or password!!";
+      }
+    }
+
+  }
 
   if(isset($_POST['register'])){
     try{

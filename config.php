@@ -3,11 +3,11 @@
 
   session_start();
   $dsn = "mysql:host=localhost;dbname=library;charset=utf8mb4";
-  $username = "root";
+  $usname = "root";
   $password = "";
 
   try{
-    $conn = new PDO($dsn,$username,$password);
+    $conn = new PDO($dsn,$usname,$password);
     //set PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     //echo "Connected successfully!!"."<br>";
@@ -44,7 +44,8 @@
           $_SESSION['username'] = $username;
           $_SESSION['success'] = 'You are now logged in';
 
-          header("location:index.php");
+          //header("location:index.php");
+          echo $_SESSION['username'];
         }else{
           echo $num_rows."<br>";
           echo "Invalid email or password!!";
@@ -109,6 +110,8 @@
 
         $_SESSION['username'] = $username;
         $_SESSION['success'] = 'You are now logged in';
+
+        //echo $_SESSION['username'];
         header('location:index.php');
       }
 

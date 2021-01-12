@@ -22,38 +22,36 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
     $errors=[];
+
+    //check if email is empty
     if(empty($email)){
       array_push($errors,"No email address provided");
       echo "Please provide a email address"."<br>";
     }
+
     if(empty($password)){
       array_push($errors,"Please provide a password");
       echo "Please provide a password";
     }
 
-  if(count($errors)===0){
-      $password =md5($password);
+    if(count($errors)===0){
+        $password =md5($password);
+        $sql = $conn->prepare("SELECT * FROM users where email='$email' AND password='$password'");
+        $sql->execute();
+        $num_rows = $sql->rowCount();
 
-      $sql = $conn->prepare("SELECT * FROM users where email='$email' AND password='$password'");
-      $sql->execute();
-      $num_rows = $sql->rowCount();
-
-      if($num_rows===1){
-        header("location:index.php");
-      }else{
-        echo $num_rows."<br>";
-        echo "Invalid email or password!!";
+        if($num_rows===1){
+          header("location:index.php");
+        }else{
+          echo $num_rows."<br>";
+          echo "Invalid email or password!!";
+        }
       }
-    }
 
   }
 
   if(isset($_POST['register'])){
-    try{
-      //PREPARE STMNTS
-      //$sql1 = "INSERT INTO users (email, user_name, password) VALUES (:email,:user_name,:password)";
-      //$stmt = $conn->prepare($sql);
-
+    try{    
       global $conn;
       $error =[];
       $username = $_POST['username'];
@@ -66,21 +64,25 @@
         echo "Please provide an email address!!"."<br>";
         array_push($error,"Email Error");
       }
+
       //check if username is empty
       if(empty($username)){
         echo "Username is empty"."<br>";
         array_push($error,"Username Error");
       }
+
       //check if password is empty
       if(empty($password_1)){
         echo "Please provide a password"."<br>";
         array_push($error,"Password Error");
       }
+
       //check if confirm password is empty
       if(empty($password_2)){
         echo "Please confirm your password"."<br>";
         array_push($error,"Password Error");
       }
+
       //check for password match
       if(!($password_1===$password_2)){
         echo "Password mismatch, please provide matching passwords!";
@@ -88,10 +90,11 @@
       }
 
       //check if email exists in database
-      $sql1 = "SELECT * FROM users WHERE email='$email' OR user_name ='$username'";
-      $results= $conn->query($sql1);
+      $sql1 = $conn->prepare("SELECT * FROM users WHERE email='$email' OR user_name ='$username'");
+      $sql1->execute();
+      $results = $sql1->rowCount();
 
-      if($results->rowCount()>0){
+      if($results){
         array_push($error,"User exists");
         echo "Username or email already taken!!";
       }
@@ -99,12 +102,7 @@
       if(count($error)===0){
         $password_1 = md5($password_1);
         $sql = "INSERT INTO users (email,user_name,password) VALUES ('$email','$username','$password_1')";
-
         $newResults=$conn->query($sql);
-
-        //$stmt->bindParam('email', $_POST['email'],PDO::PARAM_STR);
-        //$stmt->bindParam('username', $_POST['username'],PDO::PARAM_STR);
-        //$stmt->bindParam('password', $_POST['password'],PDO::PARAM_STR);
         echo ucfirst($username). "added successfully!!";
       }
 

@@ -2,6 +2,7 @@
       require "config.php";
 ?>
 <h4>Register to be a member</h4>
+
 <form action="registration.php" method="post">
   <div class="form-group">
     <label for="email">Email address</label>

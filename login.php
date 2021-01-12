@@ -1,6 +1,8 @@
-<?php require "header.php";?>
+<?php require "header.php";
+      require "config.php";
+?>
 <h3>Login</h3>
-<form action="" method="post">
+<form action="login.php" method="post">
   <div class="form-group">
       <label for="email">Email address</label>
       <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email">

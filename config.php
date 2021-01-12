@@ -17,12 +17,13 @@
 
   if(isset($_POST['register'])){
     register();
+    
   }
 
   function register(){
 
     global $conn;
-
+    $error =[];
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password_1 = $_POST['password_1'];
@@ -44,10 +45,11 @@
     if(empty($password_2)){
       echo "Please confirm your password"."<br>";
     }
-      //check for password match
+    //check for password match
     if(!($password_1===$password_2)){
       echo "Password mismatch, please provide matching passwords!";
     }
+    
   }
 
 

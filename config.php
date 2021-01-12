@@ -24,22 +24,24 @@
     $errors=[];
     if(empty($email)){
       array_push($errors,"No email address provided");
-      echo "Please provide a email address";
+      echo "Please provide a email address"."<br>";
     }
     if(empty($password)){
       array_push($errors,"Please provide a password");
       echo "Please provide a password";
     }
 
-    if(count($errors)===0){
+  if(count($errors)===0){
       $password =md5($password);
 
-      $sql = "SELECT * FROM users where email='$email' AND password='$password'";
-      $results=mysqli_query($conn,$sql);
+      $sql = $conn->prepare("SELECT * FROM users where email='$email' AND password='$password'");
+      $sql->execute();
+      $num_rows = $sql->rowCount();
 
-      if(mysqli_num_row($results)===1){
+      if($num_rows===1){
         header("location:index.php");
       }else{
+        echo $num_rows."<br>";
         echo "Invalid email or password!!";
       }
     }

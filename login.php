@@ -17,4 +17,7 @@
     <p>Not yet a member? <a href="registration.php">Register</a></p>
   </div>
 </form>
-<?php require "footer.php";?>
+
+<?php require "infooter.php";
+      require "footer.php";
+?>

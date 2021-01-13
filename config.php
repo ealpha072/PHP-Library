@@ -44,9 +44,10 @@
         if($num_rows===1){
 
           $_SESSION['loggedin']=true;
-          $_SESSION['username'] = $_POST['email'];
-
+          $_SESSION['username'] = $result[0]['user_name'];
+          //echo $_SESSION['username'];
           header("location:index.php");
+          //echo var_dump($result);
           echo $_SESSION['username'];
         }else{
           echo $num_rows."<br>";

@@ -45,10 +45,10 @@
 
           $_SESSION['loggedin']=true;
           $_SESSION['username'] = $result[0]['user_name'];
-          //echo $_SESSION['username'];
+          $_SESSION['id']= $result[0]['id'];
+          
           header("location:index.php");
           //echo var_dump($result);
-          echo $_SESSION['username'];
         }else{
           echo $num_rows."<br>";
           echo "Invalid email or password!!";

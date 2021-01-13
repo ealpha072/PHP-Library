@@ -39,10 +39,12 @@
         $sql = $conn->prepare("SELECT * FROM users where email='$email' AND password='$password'");
         $sql->execute();
         $num_rows = $sql->rowCount();
+        $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         if($num_rows===1){
-          $_SESSION['username'] = $username;
-          $_SESSION['success'] = 'You are now logged in';
+
+          $_SESSION['loggedin']=true;
+          $_SESSION['username'] = $_POST['email'];
 
           header("location:index.php");
           echo $_SESSION['username'];
@@ -98,7 +100,7 @@
       $sql1->execute();
       $results = $sql1->rowCount();
 
-      if($results){
+      if($results>1){
         array_push($error,"User exists");
         echo "Username or email already taken!!";
       }
@@ -108,6 +110,7 @@
         $sql = "INSERT INTO users (email,user_name,password) VALUES ('$email','$username','$password_1')";
         $newResults=$conn->query($sql);
 
+        $_SESSION['loggedin']=true;
         $_SESSION['username'] = $username;
         $_SESSION['success'] = 'You are now logged in';
 

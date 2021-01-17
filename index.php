@@ -8,25 +8,24 @@
   }
 ?>
 
-<div class="row h-100"> 
-            <div class="col-2" id="green"> 
-                <h4>Sidebar</h4> 
+  <div class="row h-100"> 
+    <div class="col-2" id="green"> 
+      <h4>Sidebar</h4> 
   
-                <!-- Navigation links in sidebar-->
-                <a href="#">Link 1</a><br /> 
-                <br /> 
-                <a href="#">Link 2</a><br /> 
-                <br /> 
-                <a href="#">Link 3</a><br /> 
-                <br /> 
-                <a href="#">Link 4</a><br /> 
-                <br /> 
-            </div> 
-            <div class="col-10" style="padding: 0;"> 
+      <!-- Navigation links in sidebar-->
+      <a href="#">Link 1</a><br /> 
+      <br /> 
+      <a href="#">Link 2</a><br /> 
+      <br /> 
+      <a href="#">Link 3</a><br /> 
+      <br /> 
+      <a href="#">Link 4</a><br /> 
+      <br /> 
+    </div> 
+    <div class="col-10" style="padding: 0;"> 
   
                 <!-- Top navbar -->
-                <nav class="navbar navbar-expand-lg  
-                                navbar-light bg-primary"> 
+                <nav class="navbar navbar-expand-lg  navbar-light bg-primary"> 
                     <a class="navbar-brand" href="#">Navbar</a> 
                     <!-- Hamburger button that toggles the navbar-->
                     <button class="navbar-toggler" 

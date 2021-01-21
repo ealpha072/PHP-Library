@@ -8,23 +8,9 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
 	crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css">
-  <style type="text/css"> 
-        html, 
-        body { 
-            height: 100%; 
-        } 
-  
-        #green { 
-            height: 100%; 
-            background: black; 
-            text-align: center; 
-            color: black; 
-            padding: 15px; 
-        } 
-    </style> 
 </head>
 <body>
- <div class="container-fluid">
+ <div class="container">
   <div class="head">
     <h1>Alpha's Library</h1>
   </div>

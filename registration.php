@@ -3,7 +3,7 @@
 ?>
 <h4>Register to be a member</h4>
 
-<form action="registration.php" method="post">
+<!--<form action="registration.php" method="post">
   <div class="form-group">
     <label for="email">Email address</label>
     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email">
@@ -25,5 +25,6 @@
 </form>
 <div class="login">
   <p>Already a member? <a href="login.php">Login</a></p>
-</div>
+</div>-->
+
 <?php require "footer.php";?>

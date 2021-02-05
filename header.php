@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <div class="container">
+ <div class="container-fluid">
   <div class="head">
     <h1>Alpha's Library</h1>
   </div>

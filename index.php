@@ -8,10 +8,11 @@
   }
 ?>
 
+<button class="btn" data-toggle="collapse" data-target="#dashboard" >Toggle</button>
 <div class="row">
-  <div class="col-4 dashboard"> 
+  <div class="col-4 dashboard" id="dashboard"> 
     <div class="profile">
-      <img src="avatar.png" alt="Profile">
+      <img src="images/avatar.png" alt="Profile">
       <h5 class="username"><?php echo ucfirst($_SESSION["username"]);?></h5>
     </div>
     <div class="links">
@@ -23,11 +24,11 @@
   <div class="col-8 holder">
     <div class="user-info">
       <div class="user-search">
-        <form action="" method="">
+        <form action="" method="" class="form-inline">
           <div class="form-group">
             <label for="search">Search Book</label>
             <input type="text" class="form-control" placeholder="Search Book..." id="search">
-            <button class="btn btn-primary">Search Book</button>
+            <button class="btn btn-primary" name="search-book">Search Book</button>
           </div>
         </form>
       </div>

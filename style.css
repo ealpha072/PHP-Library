@@ -25,6 +25,7 @@
 .row .dashboard .links{
   display: flex;
   flex-direction: column;
+  margin-right: 5px;
 }
 .row .holder{
   background-color: darkgray;
@@ -32,7 +33,15 @@
 
 .row .holder .user-info{
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction:row;
 }
 
+.row .holder .user-info form input{
+  margin: 10px;
+  outline: none;
+}
+.row .holder .user-info .user-search{
+  display: flex;
+  flex-direction:row;
+}
 

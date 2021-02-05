@@ -8,7 +8,6 @@
   }
 ?>
 
-<button class="btn" data-toggle="collapse" data-target="#dashboard" >Toggle</button>
 <div class="row">
   <div class="col-4 dashboard" id="dashboard"> 
     <div class="profile">
@@ -16,8 +15,11 @@
       <h5 class="username"><?php echo ucfirst($_SESSION["username"]);?></h5>
     </div>
     <div class="links">
+      <a href="">Dashboard</a>
+      <a href="">My profile</a>
       <a href="">View my books</a>
       <a href="">Add new book</a>
+      <a href="about">About</a>
 
     </div>
   </div>
@@ -28,7 +30,7 @@
           <div class="form-group">
             <label for="search">Search Book</label>
             <input type="text" class="form-control" placeholder="Search Book..." id="search">
-            <button class="btn btn-primary" name="search-book">Search Book</button>
+            <button class="btn btn-primary" name="search-book"><i class="fas fa-book"></i> Search Book</button>
           </div>
         </form>
       </div>

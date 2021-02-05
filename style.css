@@ -10,12 +10,29 @@
   display: flex;
   flex-direction: column;
   border: 2px solid black;
-  
 }
 
 .reg-form label{
   font-size: larger;
   font-weight: 500;
+}
+
+.row .dashboard{
+  background-color: chocolate;
+  display: flex;
+  flex-direction: column;
+}
+.row .dashboard .links{
+  display: flex;
+  flex-direction: column;
+}
+.row .holder{
+  background-color: darkgray;
+}
+
+.row .holder .user-info{
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 

@@ -12,16 +12,26 @@
   <div class="col-4 dashboard"> 
     <div class="profile">
       <img src="avatar.png" alt="Profile">
-      <h5 class="username"><?php echo $_SESSION["username"]?></h5>
+      <h5 class="username"><?php echo ucfirst($_SESSION["username"]);?></h5>
     </div>
     <div class="links">
       <a href="">View my books</a>
-      <a href="">View my books</a>
+      <a href="">Add new book</a>
+
     </div>
   </div>
   <div class="col-8 holder">
     <div class="user-info">
-      <a href=""><?php echo $_SESSION["username"];?></a><!--add space -->
+      <div class="user-search">
+        <form action="" method="">
+          <div class="form-group">
+            <label for="search">Search Book</label>
+            <input type="text" class="form-control" placeholder="Search Book..." id="search">
+            <button class="btn btn-primary">Search Book</button>
+          </div>
+        </form>
+      </div>
+      <a href=""><?php echo ucfirst($_SESSION["username"]);?></a><!--add space -->
       <a href="log-out">Logout</a>
     </div>
   </div>

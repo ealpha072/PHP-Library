@@ -3,7 +3,7 @@
 ?>
 <h4>Register to be a member</h4>
 
-<main class="main">
+<div class="reg-form">
   <form action="registration.php" method="post">
     <div class="form-group">
       <label for="email">Email address</label>
@@ -27,5 +27,5 @@
   <div class="login">
     <p>Already a member? <a href="login.php">Login</a></p>
   </div>
-</main
+</div>
 <?php require "footer.php";?>

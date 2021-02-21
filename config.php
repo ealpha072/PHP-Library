@@ -114,6 +114,7 @@
         $_SESSION['loggedin']=true;
         $_SESSION['username'] = $username;
         $_SESSION['success'] = 'You are now logged in';
+        //$_SESSION['email'] = $email;
 
         //echo $_SESSION['username'];
         header('location:index.php');

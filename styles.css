@@ -64,8 +64,3 @@
 .row .holder .user-info-holder .o-t {
     background-color: rgba(199, 212, 8, 0.925);
 }
-
-.user-profile {
-    display: flex;
-    flex-direction: column;
-}

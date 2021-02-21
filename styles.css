@@ -35,16 +35,7 @@
 .row .holder .user-info {
     display: flex;
     flex-direction: row;
-}
-
-.row .holder .user-info form input {
-    margin: 10px;
-    outline: none;
-}
-
-.row .holder .user-info .user-search {
-    display: flex;
-    flex-direction: row;
+    justify-content: flex-end;
 }
 
 .row .holder .user-info-holder {

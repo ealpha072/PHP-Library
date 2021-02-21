@@ -34,17 +34,10 @@
   </div>
   <div class="col-9 holder">
     <div class="user-info">
-      <div class="user-search">
-        <form action="" method="" class="form-inline">
-          <div class="form-group">
-            <label for="search">Search Book</label>
-            <input type="text" class="form-control" placeholder="Search Book..." id="search">
-            <button class="btn btn-primary" name="search-book"><i class="fas fa-book"></i> Search Book</button>
-          </div>
-        </form>
+      <div class="log-out">
+        <a href="">My Profile</a>
+        <a href="logout.php">Logout</a>
       </div>
-      <a href=""><?php echo ucfirst($_SESSION["username"]);?></a><!--add space -->
-      <a href="logout.php">Logout</a>
     </div>
     <hr>
     <div class="row user-info-holder">
@@ -57,14 +50,15 @@
         <h4>Fines collected</h4>
       </div>
       <div class="col o-t">
-        <h1 class="credits">100</h1>
-          <h4>Credits Eraned</h4>
+        <h1 class="returned">3</h1>
+          <h4>Returned</h4>
       </div>
       <div class="col c-e">
         <h1 class="credits">100</h1>
           <h4>Credits Eraned</h4>
       </div>
     </div>
+    <hr>
   </div>
 </div>
 

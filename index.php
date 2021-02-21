@@ -19,7 +19,7 @@
         <a href="">Dashboard</a>
       </div>
       <div>
-        <a href="">My profile</a>
+        <a href="profile.php">My profile</a>
       </div>
       <div>
         <a href="">View my books</a>
@@ -35,7 +35,7 @@
   <div class="col-9 holder">
     <div class="user-info">
       <div class="log-out">
-        <a href="">My Profile</a>
+        <a href="profile.php">My Profile</a>
         <a href="logout.php">Logout</a>
       </div>
     </div>

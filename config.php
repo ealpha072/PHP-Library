@@ -15,7 +15,7 @@
   }catch(Exceptions $e){
     echo "Connection failed ".$e->getMessage();
   }
-
+  //login code
   if(isset($_POST['login'])){
     global $conn;
 
@@ -45,7 +45,9 @@
 
           $_SESSION['loggedin']=true;
           $_SESSION['username'] = $result[0]['user_name'];
+          $_SESSION['user_email']=$result[0]['email'];
           $_SESSION['id']= $result[0]['id'];
+          $_SESSION['password']=$result[0]['password'];
           
           header("location:index.php");
           //echo var_dump($result);
@@ -57,6 +59,7 @@
 
   }
 
+  //register code
   if(isset($_POST['register'])){
     try{    
       global $conn;
@@ -114,6 +117,9 @@
         $_SESSION['loggedin']=true;
         $_SESSION['username'] = $username;
         $_SESSION['success'] = 'You are now logged in';
+        $_SESSION['user_email']=$email;
+        $_SESSION['password']=$password_1;
+        
         //echo $_SESSION['username'];
         header('location:index.php');
       }

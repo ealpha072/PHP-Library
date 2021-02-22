@@ -17,19 +17,14 @@
     $newpass = $_POST['newpassword'];
     $confirmpass = $_POST['newpassword1'];
     $usererrors =[];
-    
-    //prepairing sql
 
-    /*$sql = $conn->prepare("SELECT * FROM users where email='$useremail' AND password='$userpass'");
-    $sql->execute();
-    $num_rows = $sql->rowCount();
-    $result = $sql->fetchAll(PDO::FETCH_ASSOC);*/
-
+    //matching new and old passwords
     if($newpass != $confirmpass){
         array_push($usererrors, "Password mismatch");
         echo "Your passwords dont match";
     }
 
+    //if no errors
     if(count($usererrors)===0){
         $oldpass=md5($oldpass);
         $encrypt_newpass=md5($newpass);
@@ -37,6 +32,7 @@
         if($oldpass != $userpass){
             echo "Passwords mismatch";
         }else{
+            //update users passwords
             $sql = $conn->prepare("UPDATE users SET password='$encrypt_newpass' WHERE email='$useremail' ");
             $sql->execute();
             $_SESSION['msg'] = "Successfully updated password";
@@ -74,6 +70,8 @@
                 <p class="copyright">&copy; Alpha's Library by <a href="">Alpha</a>.</p>
             </form>
             <!-- Form end -->
+            <a href="index.php">Home</a><br>
+            
         </div>
     </div>
 </div>

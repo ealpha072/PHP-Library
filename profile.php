@@ -33,7 +33,7 @@
         </div>
     </div>
     <div>
-        <h4>Your E-mail:<span class="email"> </span></h4>
+        <h4>Your E-mail:<span class="email"> <?php echo $_SESSION["user_email"];?></span></h4>
         <h4>Your username:<span class="email"> <?php echo ucfirst($_SESSION["username"]);?></span></h4>
         <a href="reset.php">Reset my password</a>
     </div>

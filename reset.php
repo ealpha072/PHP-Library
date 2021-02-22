@@ -6,6 +6,28 @@
     $_SESSION['msg']= "You must be logged in";
     header("location:login.php");
   }
+
+  if(isset($_POST['passreset'])){
+      //converting session variables to simpler vars
+    $useremail = $_SESSION['user_email'];
+    $userpass = $_SESSION['password'];
+
+    //form inputs
+    $oldpass = $_POST['oldpassword'];
+    $newpass = $_POST['newpassword'];
+    $confirmpass = $_POST['newpassword1'];
+    
+    //prepairing sql
+
+    $sql = $conn->prepare("SELECT * FROM users where email='$useremail' AND password='$userpass'");
+    $sql->execute();
+    $num_rows = $sql->rowCount();
+    $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+    
+    if($num_rows===1){
+        echo "Result found";
+    }
+  }
 ?>
 
 <div>
@@ -14,7 +36,7 @@
             <!-- Form -->
             <form class="form-example" action="" method="post">
                 <h1>Password Reset</h1>
-                <p class="description">Please provide your password and the mnew passwords below</p>
+                <p class="description">Please provide your password and the new passwords below</p>
                 <!-- Input fields -->
                 <div class="form-group">
                     <label for="oldpassword">Old password</label>

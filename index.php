@@ -6,6 +6,8 @@
     $_SESSION['msg']= "You must be logged in";
     header("location:login.php");
   }
+
+  
 ?>
 
 <div class="row">
@@ -33,6 +35,15 @@
     </div>
   </div>
   <div class="col-9 holder">
+    <div class="search-book">
+    <form class="form-inline" method="post" action="">
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="search" class="sr-only">Search</label>
+        <input type="text" class="form-control" id="" placeholder="Search Book" name="book-search" required>
+      </div>
+      <button type="submit" class="btn btn-primary mb-2" name="search">Search</button>
+    </form>
+    </div>
     <div class="user-info">
       <div class="log-out">
         <a href="profile.php">My Profile</a>
@@ -59,6 +70,18 @@
       </div>
     </div>
     <hr>
+    <div class="result-holder">
+      <?php
+      if(isset($_POST['search'])){
+        $searched_book=$_POST['book-search'];
+        $sql = $conn->prepare("SELECT * FROM books WHERE book_name='$searched_book'");
+        $sql->execute();
+        $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+        echo gettype($result);
+      }
+      
+      ?>
+    </div>
   </div>
 </div>
 

@@ -12,7 +12,7 @@
     $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     //echo "Connected successfully!!"."<br>";
     //$conn->getAttribute(constant("PDO::ATTR_CONNECTION_STATUS"));
-  }catch(Exceptions $e){
+  }catch(Exception $e){
     echo "Connection failed ".$e->getMessage();
   }
   //login code

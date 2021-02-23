@@ -63,3 +63,7 @@
 .row .holder .user-info-holder .o-t {
     background-color: rgba(199, 212, 8, 0.925);
 }
+
+.row .holder .search-book form button {
+    margin: auto 5px;
+}

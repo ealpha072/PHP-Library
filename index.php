@@ -78,18 +78,37 @@
         $sql = $conn->prepare("SELECT * FROM books WHERE book_name='$searched_book'");
         $sql->execute();
         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($result);
+        //var_dump($result);
       }
 
+      //refactor from this point
       if(isset($_POST['allbooks'])){
-        $sql = $conn->prepare("SELECT * FROM books");
-        $sql->execute();
-        $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($result);
+        $sql = "SELECT * FROM books";
+        $results = mysqli_query($conn, $sql); //convert this to 
+        $rows = mysqli_fetch_all($results, MYSQLI_ASSOC);?>
 
-      }
-      
-      ?>
+        <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Title</th>
+              <th scope="col">Author</th>
+              <th scope="col">Subject</th>  
+            </tr>
+          </thead>
+          <tbody>
+                <?php foreach($rows as $row){?>
+                <tr>
+                  <td><?php echo $row['id'];?></td>
+                  <td><?php echo $row['book_name'];?></td>
+                  <td><?php echo $row['book_author'];?></td>
+                  <td><?php echo $row['subject'];?></td>
+                </tr>
+                <?php }?>
+          </tbody>
+        </table>
+          
+      <?php }?>
     </div>
   </div>
 </div>

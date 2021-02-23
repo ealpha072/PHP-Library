@@ -24,10 +24,10 @@
         <a href="profile.php">My profile</a>
       </div>
       <div>
-        <a href="">View my books</a>
+        <a href="">View my Books</a>
       </div>
       <div>
-        <a href="">Add new book</a>
+        <a href="" name="allbks">View all Books</a>
       </div>
       <div>
         <a href="about">About</a>
@@ -39,9 +39,10 @@
     <form class="form-inline" method="post" action="">
       <div class="form-group mx-sm-3 mb-2">
         <label for="search" class="sr-only">Search</label>
-        <input type="text" class="form-control" id="" placeholder="Search Book" name="book-search" required>
+        <input type="text" class="form-control" id="" placeholder="Search Book" name="book-search">
       </div>
       <button type="submit" class="btn btn-primary mb-2" name="search">Search</button>
+      <button type="submit" class="btn btn-primary mb-2" name="allbooks">See All Books</button>
     </form>
     </div>
     <div class="user-info">
@@ -77,7 +78,15 @@
         $sql = $conn->prepare("SELECT * FROM books WHERE book_name='$searched_book'");
         $sql->execute();
         $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-        echo gettype($result);
+        var_dump($result);
+      }
+
+      if(isset($_POST['allbooks'])){
+        $sql = $conn->prepare("SELECT * FROM books");
+        $sql->execute();
+        $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+        var_dump($result);
+
       }
       
       ?>

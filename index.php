@@ -36,14 +36,14 @@
   </div>
   <div class="col-9 holder">
     <div class="search-book">
-    <form class="form-inline" method="post" action="">
-      <div class="form-group mx-sm-3 mb-2">
-        <label for="search" class="sr-only">Search</label>
-        <input type="text" class="form-control" id="" placeholder="Search Book" name="book-search">
-      </div>
-      <button type="submit" class="btn btn-primary mb-2" name="search">Search</button>
-      <button type="submit" class="btn btn-primary mb-2" name="allbooks">See All Books</button>
-    </form>
+      <form class="form-inline" method="post" action="">
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="search" class="sr-only">Search</label>
+          <input type="text" class="form-control" id="" placeholder="Search Book" name="book-search">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2" name="search">Search</button>
+        <button type="submit" class="btn btn-primary mb-2" name="allbooks">See All Books</button>
+      </form>
     </div>
     <div class="user-info">
       <div class="log-out">

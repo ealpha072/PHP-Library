@@ -5,6 +5,7 @@
   $dsn = "mysql:host=localhost;dbname=library;charset=utf8mb4";
   $username = "root";
   $password = "";
+  $msg='';
 
   try{
     $conn = new PDO($dsn,$username,$password);
@@ -110,10 +111,22 @@
       }
 
       if(count($error)===0){
+        //code for uploading image
+        $filename =$_FILES['userimage']['name'];
+        $tempname =$_FILES['uploadfile']['temp_name'];
+        $folder = "image/".$filename;
+        
+        //password processing and database entry
         $password_1 = md5($password_1);
-        $sql = "INSERT INTO users (email,user_name,password) VALUES ('$email','$username','$password_1')";
+        $sql = "INSERT INTO users (email,user_name,password,user_image) VALUES ('$email','$username','$password_1','$filename')";
         $newResults=$conn->query($sql);
-
+        
+        if(move_uploaded_file($tempname,$folder)){
+          $msg = "Image uploaded successfully";
+        }else{
+          $msg='Failed to upload image';
+        }
+        //session variables
         $_SESSION['loggedin']=true;
         $_SESSION['username'] = $username;
         $_SESSION['success'] = 'You are now logged in';

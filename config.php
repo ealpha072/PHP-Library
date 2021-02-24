@@ -113,7 +113,7 @@
       if(count($error)===0){
         //code for uploading image
         $filename =$_FILES['userimage']['name'];
-        $tempname =$_FILES['uploadfile']['temp_name'];
+        $tempname =$_FILES['userimage']['temp_name'];
         $folder = "image/".$filename;
         
         //password processing and database entry

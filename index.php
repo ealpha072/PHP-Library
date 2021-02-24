@@ -85,7 +85,8 @@
               <th scope="col">#</th>
               <th scope="col">Title</th>
               <th scope="col">Author</th>
-              <th scope="col">Subject</th>  
+              <th scope="col">Subject</th>
+              <th scope="col" class='text-center'>Action</th> 
             </tr>
           </thead>
           <tbody>
@@ -95,6 +96,7 @@
                   <td><?php echo $row['book_name'];?></td>
                   <td><?php echo $row['book_author'];?></td>
                   <td><?php echo $row['subject'];?></td>
+                  <td><button class="btn btn-success" value="">Borrow</button></td>
                 </tr>
                 <?php }?>
           </tbody>
@@ -115,6 +117,7 @@
               <th scope="col">Title</th>
               <th scope="col">Author</th>
               <th scope="col">Subject</th>  
+              <th scope="col" class='text-center'>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -124,6 +127,7 @@
                   <td><?php echo $row['book_name'];?></td>
                   <td><?php echo $row['book_author'];?></td>
                   <td><?php echo $row['subject'];?></td>
+                  <td><button class="btn btn-success">Borrow</button></td>
                 </tr>
                 <?php }?>
           </tbody>

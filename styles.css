@@ -64,6 +64,13 @@
     background-color: rgba(199, 212, 8, 0.925);
 }
 
-.row .holder .search-book form button {
+.row .holder .search-book form button,
+.row .holder .holder-head .user-info .dropdown button {
     margin: 5px 5px;
+}
+
+.row .holder .holder-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }

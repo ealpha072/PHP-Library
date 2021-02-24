@@ -5,9 +5,7 @@
   if(!isset($_SESSION['loggedin'])){
     $_SESSION['msg']= "You must be logged in";
     header("location:login.php");
-  }
-
-  
+  }  
 ?>
 
 <div class="row">
@@ -18,19 +16,16 @@
     </div>
     <div class="links">
       <div>
-        <a href="">Dashboard</a>
+        <a href=""><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a>
       </div>
       <div>
-        <a href="profile.php">My profile</a>
+        <a href="profile.php"><i class="fa fa-user" aria-hidden="true"></i> My profile</a>
       </div>
       <div>
-        <a href="">View my Books</a>
+        <a href=""><i class="fa fa-book" aria-hidden="true"></i> View my Books</a>
       </div>
       <div>
-        <a href="" name="allbks">View all Books</a>
-      </div>
-      <div>
-        <a href="about">About</a>
+        <a href="about"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
       </div>      
     </div>
   </div>
@@ -42,20 +37,21 @@
             <label for="search" class="sr-only">Search</label>
             <input type="text" class="form-control" id="" placeholder="Search Book" name="book-search">
           </div>
-          <button type="submit" class="btn btn-primary mb-2" name="search">Search</button>
-          <button type="submit" class="btn btn-primary mb-2" name="allbooks">See All Books</button>
+          <button type="submit" class="btn btn-primary mb-2" name="search"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+          <button type="submit" class="btn btn-primary mb-2" name="allbooks"><i class="fa fa-book" aria-hidden="true"></i> See All Books</button>
         </form>
       </div>
       <div class="user-info">
         <div class="log-out">
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              My Profile
+            <i class="fa fa-user" aria-hidden="true"></i>
+            My Profile
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">View Profile</a>
-              <a class="dropdown-item" href="#">Password</a>
-              <a class="dropdown-item" href="#">Logout</a>
+              <a class="dropdown-item" href="#"><i class="fa fa-user" aria-hidden="true"></i> View Profile</a>
+              <a class="dropdown-item" href="#"><i class="fa fa-unlock" aria-hidden="true"></i> Password</a>
+              <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
             </div>
           </div>
         </div>

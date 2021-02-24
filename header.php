@@ -7,11 +7,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
   crossorigin="anonymous">
-  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <script src="https://use.fontawesome.com/c6dbced80b.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
  <div class="container-fluid">
-  <div class="head">
-    <h1>Alpha's Library</h1>
-  </div>

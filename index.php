@@ -5,13 +5,13 @@
   if(!isset($_SESSION['loggedin'])){
     $_SESSION['msg']= "You must be logged in";
     header("location:login.php");
-  }  
+  }
 ?>
 
 <div class="row">
   <div class="col-3 dashboard" id="dashboard"> 
     <div class="profile">
-      <img src="images/avatar.png" alt="Profile">
+      <img src="" alt="">
       <h5 class="username"><?php echo ucfirst($_SESSION["username"]);?></h5>
     </div>
     <div class="links">

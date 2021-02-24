@@ -6,12 +6,14 @@
     $_SESSION['msg']= "You must be logged in";
     header("location:login.php");
   }
+
+  $userimg= $_SESSION['image'];
 ?>
 
 <div class="row">
   <div class="col-3 dashboard" id="dashboard"> 
     <div class="profile">
-      <img src="" alt="">
+      <?php //echo "<img src = 'image/".$userimg.'" />'?>
       <h5 class="username"><?php echo ucfirst($_SESSION["username"]);?></h5>
     </div>
     <div class="links">

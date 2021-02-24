@@ -49,6 +49,7 @@
           $_SESSION['user_email']=$result[0]['email'];
           $_SESSION['id']= $result[0]['id'];
           $_SESSION['password']=$result[0]['password'];
+          $_SESSION['image']=$result[0]['user_image'];
           
           header("location:index.php");
           //echo var_dump($result);
@@ -132,6 +133,7 @@
         $_SESSION['success'] = 'You are now logged in';
         $_SESSION['user_email']=$email;
         $_SESSION['password']=$password_1;
+        $_SESSION['image']= $filename;
         
         //echo $_SESSION['username'];
         header('location:index.php');

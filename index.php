@@ -35,20 +35,30 @@
     </div>
   </div>
   <div class="col-9 holder">
-    <div class="search-book">
-      <form class="form-inline" method="post" action="">
-        <div class="form-group mx-sm-3 mb-2">
-          <label for="search" class="sr-only">Search</label>
-          <input type="text" class="form-control" id="" placeholder="Search Book" name="book-search">
+    <div class="holder-head">
+      <div class="search-book">
+        <form class="form-inline" method="post" action="">
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="search" class="sr-only">Search</label>
+            <input type="text" class="form-control" id="" placeholder="Search Book" name="book-search">
+          </div>
+          <button type="submit" class="btn btn-primary mb-2" name="search">Search</button>
+          <button type="submit" class="btn btn-primary mb-2" name="allbooks">See All Books</button>
+        </form>
+      </div>
+      <div class="user-info">
+        <div class="log-out">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              My Profile
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">View Profile</a>
+              <a class="dropdown-item" href="#">Password</a>
+              <a class="dropdown-item" href="#">Logout</a>
+            </div>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary mb-2" name="search">Search</button>
-        <button type="submit" class="btn btn-primary mb-2" name="allbooks">See All Books</button>
-      </form>
-    </div>
-    <div class="user-info">
-      <div class="log-out">
-        <a href="profile.php">My Profile</a>
-        <a href="logout.php">Logout</a>
       </div>
     </div>
     <hr>
@@ -67,7 +77,7 @@
       </div>
       <div class="col c-e">
         <h1 class="credits">100</h1>
-          <h4>Credits Eraned</h4>
+          <h4>Credits Earned</h4>
       </div>
     </div>
     <hr>
@@ -96,7 +106,7 @@
                   <td><?php echo $row['book_name'];?></td>
                   <td><?php echo $row['book_author'];?></td>
                   <td><?php echo $row['subject'];?></td>
-                  <td><button class="btn btn-success" value="">Borrow</button></td>
+                  <td><button class="btn btn-success" value="<?php echo $row['id'];?>">Borrow</button></td>
                 </tr>
                 <?php }?>
           </tbody>
@@ -127,7 +137,7 @@
                   <td><?php echo $row['book_name'];?></td>
                   <td><?php echo $row['book_author'];?></td>
                   <td><?php echo $row['subject'];?></td>
-                  <td><button class="btn btn-success">Borrow</button></td>
+                  <td><button class="btn btn-success" value="<?php echo $row['id'];?>">Borrow</button></td>
                 </tr>
                 <?php }?>
           </tbody>
@@ -137,4 +147,5 @@
     </div>
   </div>
 </div>
+<?php require "footer.php"; ?>
 

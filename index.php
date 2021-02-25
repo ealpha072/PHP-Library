@@ -104,7 +104,7 @@
                   <td><?php echo $row['book_name'];?></td>
                   <td><?php echo $row['book_author'];?></td>
                   <td><?php echo $row['subject'];?></td>
-                  <td><button class="btn btn-success" value="<?php echo $row['id'];?>">Borrow</button></td>
+                  <td><form action="" method="post"><button class="btn btn-success" value="<?php echo $row['id'];?>" name="borrow">Borrow</button></form></td>
                 </tr>
                 <?php }?>
           </tbody>

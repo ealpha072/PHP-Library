@@ -1,6 +1,7 @@
-INSERT INTO `books`(`id`, `book_name`, `book_author`, `subject`) VALUES (1,'Management Accounting','R.J.Reddy','Accounting')
+/*inserting books into database*/
 
 INSERT INTO `books`(`id`, `book_name`, `book_author`, `subject`) VALUES 
+(1,'Management Accounting','R.J.Reddy','Accounting')
 (2,'Financial Accounting','Ashok Banerjee','Accounting'),
 (3,'Fundamentals of Accounting','Donatila Agtarap-San Juan','Accounting'),
 (4,'Financial Accounting for BBA','S.N. Maheshwari ','Accounting'),

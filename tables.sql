@@ -13,3 +13,6 @@ INSERT INTO `books`(`id`, `book_name`, `book_author`, `subject`) VALUES
 /* code for adding image column*/
 
 ALTER TABLE `users` ADD `user_image` VARCHAR(255) NOT NULL AFTER `password`;
+
+/*borrowed books table*/
+CREATE TABLE `library`. ( `book_id` INT NULL , `user_name` VARCHAR(255) NOT NULL ) ENGINE = InnoDB;

@@ -46,9 +46,9 @@
 <?php 
     if(isset($_POST['borrow'])){
         global $id;
-        $sql->conn->prepare("INSERT INTO borrowed_books (book_id, user_email, user_id) VALUES($id,$email,$user_id)");
-        $sql->execute();
-
+        $sql = "INSERT INTO borrowed_books (book_id, user_email, user_id) VALUES($id,$email,$user_id)";
+        //$result =$conn->query($sql);
+        echo "Book borrowed successfully!!";
     }
    
 

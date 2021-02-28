@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.reg-form {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+}
+
+.reg-form label {
+    font-size: larger;
+    font-weight: 500;
+}
+
+.row .dashboard {
+    background-color: rgb(21, 21, 21);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.row .dashboard .links {
+    display: flex;
+    flex-direction: column;
+}
+
+.row .holder {
+    background-color: darkgray;
+}
+
+.row .holder .user-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.row .holder .user-info-holder {
+    display: flex;
+}
+
+.row .holder .user-info-holder .col {
+    border: 2px solid rgb(39, 9, 110);
+    margin: 10px 10px;
+    border-radius: 5px;
+    color: whitesmoke;
+}
+
+.row .holder .user-info-holder .b-b {
+    background-color: rgba(19, 216, 19, 0.3);
+}
+
+.row .holder .user-info-holder .f-c {
+    background-color: rgb(22, 20, 56);
+}
+
+.row .holder .user-info-holder .c-e {
+    background-color: rgb(224, 15, 137);
+}
+
+.row .holder .user-info-holder .o-t {
+    background-color: rgba(199, 212, 8, 0.925);
+}
+
+.row .holder .search-book form button,
+.row .holder .holder-head .user-info .dropdown button {
+    margin: 5px 5px;
+}
+
+.row .holder .holder-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

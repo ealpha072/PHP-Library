@@ -2,13 +2,13 @@
     require 'config.php';
     require 'header.php';
 
-    $email = $_SESSION['user_email'];
+    //$name = $_SESSION['username'];
     $user_id =$_SESSION['id'];
-    
+    $id = $_GET['id'];
 
     if(isset($_GET['id'])){
         #echo $_GET['id'];
-        $id = $_GET['id'];    
+            
         echo $id;
         $sql = $conn->prepare("SELECT * FROM books WHERE id=$id");
         $sql->execute();
@@ -45,11 +45,14 @@
 
 <?php 
     if(isset($_POST['borrow'])){
-        global $id;
-        $sql = "INSERT INTO borrowed_books (book_id, user_email, user_id) VALUES($id,$email,$user_id)";
-        //$result =$conn->query($sql);
-        echo "Book borrowed successfully!!";
+        try{
+            $sql = "INSERT INTO borrowed_books(book_id, user_id) VALUES($id,$user_id)";
+            $conn->exec($sql);
+            echo "New record updated!! ";
+        }catch(PDOException $e){
+            echo $sql . "<br>" . $e->getMessage();
+        }
     }
-   
+?>   
 
-?>      
+<a href="index.php">Home</a>

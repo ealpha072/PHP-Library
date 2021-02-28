@@ -9,6 +9,7 @@
 
   $user_id = $_SESSION['id'];
   $user_boorowed_books=$conn-> prepare("SELECT book_id FROM borrowed_books WHERE user_id =$user_id");
+
   /*
   on start of the load, display the number of books a userr has borrowed and display the number
   on clicking my books, dispaly the info of borrowed books to user
@@ -98,7 +99,6 @@
     <div class="result-holder">
     
       <?php
-      //var_dump($results1);
       if (isset($_POST['borrowed_books'])){
         $results = $user_boorowed_books->fetchAll(PDO::FETCH_ASSOC);?>
 
@@ -108,8 +108,7 @@
               <th scope="col">#</th>
               <th scope="col">Title</th>
               <th scope="col">Author</th>
-              <th scope="col">Subject</th>
-              <th scope="col" class='text-center'>Action</th> 
+              <th scope="col">Subject</th> 
             </tr>
           </thead>
           <tbody>
@@ -119,18 +118,18 @@
             $sql1 =$conn->prepare("SELECT * FROM books WHERE id=$row_id");
             $sql1->execute();
             $results1 =$sql1->fetchAll(PDO::FETCH_ASSOC);
-                
+               
             foreach ($results1 as $line) {?>
-              <tr>
+                <tr>
                   <td><?php echo $line['id'];?></td>
                   <td><?php echo $line['book_name'];?></td>
                   <td><?php echo $line['book_author'];?></td>
                   <td><?php echo $line['subject'];?></td>
                 </tr>
-            <?php }?>
+            <?php } }?>
           </tbody>
         </table>
-        <?php }
+        <?php
        }
 
       if(isset($_POST['search'])){

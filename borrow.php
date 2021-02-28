@@ -66,6 +66,7 @@
                         <h4>Book Name: <?php echo $result[0]['book_name'];?></h4>
                         <h4>Book Author: <?php echo $result[0]['book_author'];?></h4>
                         <h4>Subject: <?php echo $result[0]['subject'];?></h4>
+                        <h4>Date borrowed: <?php echo date("l jS \of F Y h:i:s A");?></h4>
                     </div>            
                 </div>
             <?php }?>

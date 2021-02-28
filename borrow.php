@@ -33,7 +33,8 @@
                   <td><?php echo $row['subject'];?></td>
                   <td>
                     <form method="post" action="">
-                        <button class="btn btn-success" name="borrow">Borrow</button>
+                        <button class="btn btn-success" name="borrow" data-toggle="modal" data-target="#exampleModalCenter">Borrow</button>
+                        
                     </form>
                 </td>
                 </tr>
@@ -47,12 +48,23 @@
     if(isset($_POST['borrow'])){
         try{
             $sql = "INSERT INTO borrowed_books(book_id, user_id) VALUES($id,$user_id)";
-            $conn->exec($sql);
-            echo "New record updated!! ";
-        }catch(PDOException $e){
+            $conn->exec($sql);?>
+            <div class="borrowed_book_info">
+                <h3>You have borrowed the following book;</h3>
+                <div class="info">
+                    <h4>Book Name: <?php echo $result[0]['book_name'];?></h4>
+                    <h4>Book Author: <?php echo $result[0]['book_author'];?></h4>
+                    <h4>Subject: <?php echo $result[0]['subject'];?></h4>
+                </div>            
+            </div>
+            
+            
+
+        <?php }catch(PDOException $e){
             echo $sql . "<br>" . $e->getMessage();
         }
     }
 ?>   
 
 <a href="index.php">Home</a>
+<?php require "footer.php";?>

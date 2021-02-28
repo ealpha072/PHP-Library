@@ -17,6 +17,12 @@ ALTER TABLE `users` ADD `user_image` VARCHAR(255) NOT NULL AFTER `password`;
 
 /*borrowed books table*/
 CREATE TABLE `library`. ( `book_id` INT NULL , `user_name` VARCHAR(255) NOT NULL ) ENGINE = InnoDB;
+
 /*alter tables*/
 ALTER TABLE `borrowed_books` CHANGE `user_name` `user_email` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ALTER TABLE `borrowed_books` ADD `user_id` INT(100) NOT NULL AFTER `user_email`;
+ALTER TABLE `borrowed_books` CHANGE `user_email` `user_name` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+
+/*drop column*/
+ALTER TABLE `borrowed_books`
+  DROP `user_name`;

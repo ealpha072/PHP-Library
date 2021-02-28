@@ -160,9 +160,9 @@
                 <?php }?>
           </tbody>
         </table>
-      <?php } ?>
+      <?php } 
 
-      <?php //refactor from this point
+       //refactor from this point
       if(isset($_POST['allbooks'])){
         $sql = $conn->prepare("SELECT * FROM books");
         $sql->execute();
@@ -197,4 +197,3 @@
   </div>
 </div>
 <?php require "footer.php"; ?>
-

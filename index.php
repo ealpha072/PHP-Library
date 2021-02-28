@@ -7,6 +7,13 @@
     header("location:login.php");
   }
 
+  /*
+  on start of the load, display the number of books a userr has borrowed and display the number
+  on clicking my books, dispaly the info of borrowed books to user
+
+  get users id, in the borrowed books tables, look for books under the user id
+  for each book that the user has under his id, display book info from the book table, 
+  */
   $userimg= $_SESSION['image'];
 ?>
 

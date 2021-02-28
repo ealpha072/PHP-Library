@@ -33,7 +33,7 @@
         <a href="profile.php"><i class="fa fa-user" aria-hidden="true"></i> My profile</a>
       </div>
       <div>
-        <a href=""><i class="fa fa-book" aria-hidden="true"></i> View my Books</a>
+        <a href=""><i class="fa fa-book" aria-hidden="true"></i>View borrowed books</a>
       </div>
       <div>
         <a href="about"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
@@ -74,6 +74,9 @@
         <?php
           $user_boorowed_books->execute();
           $num_rows =$user_boorowed_books->rowCount();
+          $results = $user_boorowed_books->fetchAll(PDO::FETCH_ASSOC);
+         //var_dump($results[0]);
+         
         ?>
         <h1 class="user-books"><?php echo $num_rows;?></h1>
         <h4>Borrowed books</h4>
@@ -93,7 +96,22 @@
     </div>
     <hr>
     <div class="result-holder">
+    
       <?php
+      //var_dump($results1);
+      foreach($results as $row){
+        $row_id =$row['book_id'];
+        $sql1 =$conn->prepare("SELECT * FROM books WHERE id=$row_id");
+        $sql1->execute();
+        $results1 =$sql1->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($results1 as $line) {
+          # code...
+          echo $line['book_name'];
+        }
+
+        //echo $row['book_id']."<br>";
+      }
       if(isset($_POST['search'])){
         $searched_book=$_POST['book-search'];
         $sql = $conn->prepare("SELECT * FROM books WHERE book_name='$searched_book'");

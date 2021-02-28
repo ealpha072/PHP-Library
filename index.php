@@ -7,6 +7,8 @@
     header("location:login.php");
   }
 
+  $user_id = $_SESSION['id'];
+  $user_boorowed_books=$conn-> prepare("SELECT book_id FROM borrowed_books WHERE user_id =$user_id");
   /*
   on start of the load, display the number of books a userr has borrowed and display the number
   on clicking my books, dispaly the info of borrowed books to user
@@ -69,7 +71,11 @@
     <hr>
     <div class="row user-info-holder">
       <div class="col b-b">
-        <h1 class="user-books">10</h1>
+        <?php
+          $user_boorowed_books->execute();
+          $num_rows =$user_boorowed_books->rowCount();
+        ?>
+        <h1 class="user-books"><?php echo $num_rows;?></h1>
         <h4>Borrowed books</h4>
       </div>
       <div class="col f-c">

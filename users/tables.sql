@@ -10,7 +10,7 @@ INSERT INTO `books`(`id`, `book_name`, `book_author`, `subject`) VALUES
 (7,'Accounting All-in-One For Dummies','Kenneth Boyd','Accounting'),
 (8,'Corporate Accounting, 6th Edition','Maheshwari S.N. & Maheshwari S.K.','Accounting'),
 (9,'Accounting For Management','Vijayakumar','Accounting');
-(10, 'Accounting Simplified','Ms. Reuben James')
+
 
 /* code for adding image column*/
 

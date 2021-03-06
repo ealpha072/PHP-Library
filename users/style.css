@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.signup {
+    display: flex;
+    border: 2px solid black;
+    justify-content: space-between;
+}
+
+form .signin {
+    margin: 30px auto;
+}
+
+form input {
+    border-top: none;
+    outline: none;
+    border-left: none;
+    border-right: none
+}
+
+form .btn button {
+    width: 100%;
+    background-color: #155724;
+    border-radius: 5px;
+    font-size: larger;
+    font-weight: 500;
+}
+
+.signup .social {
+    border-left: 2px solid gray;
+}
+
+.signup .social div {
+    margin: 30px;
+}
+
+.signup .social div button {
+    outline: none;
+    width: 100%;
+    height: 40px;
+    font-size: large;
+    font-weight: 500;
+    border-radius: 8px;
+    color: white;
+}
+
+.signup .social .fb button {
+    background-color: #004085;
+}
+
+.signup .social .twitter button {
+    background-color: #17a2b8;
+}
+
+.signup .social .google button {
+    background-color: #c7270d;
+}

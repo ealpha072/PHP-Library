@@ -51,7 +51,7 @@
             </div>
         </div>
     </div>
-    <hr>-->
+    <hr>
     <div class="row user-info-holder">
         <div class="col b-b">
             <?php
@@ -77,8 +77,8 @@
             <h4>Credits Earned</h4>
         </div>
     </div>
-    <hr>
-    <div class="result-holder">
+    <hr>-->
+    <!--<div class="result-holder">
 
         <?php
       if (isset($_POST['borrowed_books'])){
@@ -199,6 +199,6 @@
                 </table>
 
                 <?php }?>
-    </div>
+    </div>-->
 </div>
 </div>

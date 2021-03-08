@@ -84,24 +84,24 @@
 				<div class="row user-info-holder">
 					<!--holds the display divs for borrowed bks etc-->
 					<div class="col b-b">
+						<h4>Borrowed Books</h4>
 						<?php
 							$user_boorowed_books->execute();
 							$num_rows =$user_boorowed_books->rowCount();	
 						?>
-						<h1 class="user-books"><?php echo $num_rows;?></h1>
-						<h4>Borrowed books</h4>
+						<h1 class="user-books"><?php echo $num_rows;?></h1>						
 					</div>
-					<div class="col f-c">
-						<h1 class="fines">40</h1>
+					<div class="col f-c">						
 						<h4>Fines collected</h4>
+						<h1 class="fines">40</h1>
 					</div>
-					<div class="col o-t">
-						<h1 class="returned">3</h1>
+					<div class="col o-t">						
 						<h4>Returned</h4>
+						<h1 class="returned">3</h1>
 					</div>
-					<div class="col c-e">
-						<h1 class="credits">100</h1>
+					<div class="col c-e">						
 						<h4>Credits Earned</h4>
+						<h1 class="credits">100</h1>
 					</div>
 				</div>
 				<hr>

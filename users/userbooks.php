@@ -38,7 +38,3 @@
                     <?php } }?>
 			</tbody>
 		</table>
-<?php 
-    #require "closingtags.php";
-    require "footer.php";
-?>

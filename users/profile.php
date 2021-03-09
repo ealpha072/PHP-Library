@@ -1,43 +1,30 @@
 <?php
   //session_start();
   require "header.php";
-  require "config.php";
+  require "index.php";
   if(!isset($_SESSION['loggedin'])){
     $_SESSION['msg']= "You must be logged in";
     header("location:login.php");
   }
 ?>
 <div class="user-profile"> 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Change Profile Picture</button>
+    <div class="row">
+        <div class="col userimage">
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">New Profile</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="" method="POST">
-                        <input type="file">
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" name="profile-pic">Save changes</button>
-                </div>
-            </div>
+        </div>
+        <div class="col updateprofile">
+
         </div>
     </div>
-    <div>
-        <h4>Your E-mail:<span class="email"> <?php echo $_SESSION["user_email"];?></span></h4>
-        <h4>Your username:<span class="email"> <?php echo ucfirst($_SESSION["username"]);?></span></h4>
-        <a href="reset.php">Reset my password</a><br>
-        <a href="index.php">Home</a>
-    </div>
+    
+    <form action="" method="POST">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">@</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+    </form>
     
 </div>
 <?php require "footer.php";?>

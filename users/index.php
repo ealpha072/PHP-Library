@@ -32,7 +32,6 @@
         <div class="list-group list-group-flush">
             <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a>
             <a href="profile.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-user" aria-hidden="true"></i> My Profile</a>
-            <a href="books.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-book" aria-hidden="true"></i> My books</a>
             <a href="" class="list-group-item list-group-item-action bg-light"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>            
         </div>
         </div>
@@ -58,7 +57,6 @@
 									<input type="text" class="form-control" id="" placeholder="Search Book" name="book-search">
 								</div>
 								<button type="submit" class="btn btn-primary mb-2" name="search"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
-								<button type="submit" class="btn btn-primary mb-2" name="allbooks"><i class="fa fa-book" aria-hidden="true"></i> See All Books</button>
 							</form>
 						</li>
 						<li class="nav-item active">
@@ -109,38 +107,6 @@
 				<div class="result-holder">
   					<!--search results go here-->
 					<?php
-						if (isset($_POST['borrowed_books'])){
-							$results = $user_boorowed_books->fetchAll(PDO::FETCH_ASSOC);?>
-
-								<table class="table table-striped table-dark">
-									<thead>
-										<tr>
-											<th scope="col">#</th>
-											<th scope="col">Title</th>
-											<th scope="col">Author</th>
-											<th scope="col">Subject</th>
-										</tr>
-									</thead>
-									<tbody>
-							<?php
-							foreach($results as $row){
-								$row_id =$row['book_id'];
-								$sql1 =$conn->prepare("SELECT * FROM books WHERE id=$row_id");
-								$sql1->execute();
-								$results1 =$sql1->fetchAll(PDO::FETCH_ASSOC);
-								
-								foreach ($results1 as $line) {?>
-									<tr>
-										<td><?php echo $line['id'];?></td>
-										<td><?php echo $line['book_name'];?></td>
-										<td><?php echo $line['book_author'];?></td>
-										<td><?php echo $line['subject'];?></td>
-									</tr>
-								<?php } }?>
-									</tbody>
-								</table>
-					<?php }
-
 					if(isset($_POST['search'])){
 						$searched_book=$_POST['book-search'];
 						$sql = $conn->prepare("SELECT * FROM books WHERE book_name='$searched_book'");
@@ -169,43 +135,7 @@
 								<?php }?>
 							</tbody>
 						</table>
-					<?php } 
-
-					//refactor from this point
-					if(isset($_POST['allbooks'])){
-						$sql = $conn->prepare("SELECT * FROM books");
-						$sql->execute();
-						$result = $sql->fetchAll(PDO::FETCH_ASSOC);?>
-
-						<table class="table table-striped table-dark">
-							<thead>
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col">Title</th>
-									<th scope="col">Author</th>
-									<th scope="col">Subject</th>
-									<th scope="col">Action</th>
-								</tr>
-							</thead>
-							<tbody>
-							<?php foreach($result as $row){?>
-								<tr>
-									<td><?php echo $row['id'];?></td>
-									<td><?php echo $row['book_name'];?></td>
-									<td><?php echo $row['book_author'];?></td>
-									<td><?php echo $row['subject'];?></td>
-									<td><a href="borrow.php?id=<?php echo $row[" id "];?>"><button class="btn btn-success">Borrow</button></a></td>
-								</tr>
-							<?php }?>
-							</tbody>
-						</table>
-
-					<?php }?>
-				</div>               
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
-    </div>
+					<?php } ?>					
+				
 
 <?php require "footer.php"; ?>

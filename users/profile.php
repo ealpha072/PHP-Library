@@ -21,7 +21,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="" method="POST">
                         <input type="file">
                     </form>
                 </div>

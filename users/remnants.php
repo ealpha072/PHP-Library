@@ -202,3 +202,68 @@
     </div>-->
 </div>
 </div>
+
+
+//code for viewing all books
+<?php if(isset($_POST['allbooks'])){
+						$sql = $conn->prepare("SELECT * FROM books");
+						$sql->execute();
+						$result = $sql->fetchAll(PDO::FETCH_ASSOC);?>
+
+						<table class="table table-striped table-dark">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Title</th>
+									<th scope="col">Author</th>
+									<th scope="col">Subject</th>
+									<th scope="col">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+							<?php foreach($result as $row){?>
+								<tr>
+									<td><?php echo $row['id'];?></td>
+									<td><?php echo $row['book_name'];?></td>
+									<td><?php echo $row['book_author'];?></td>
+									<td><?php echo $row['subject'];?></td>
+									<td><a href="borrow.php?id=<?php echo $row[" id "];?>"><button class="btn btn-success">Borrow</button></a></td>
+								</tr>
+							<?php }?>
+							</tbody>
+						</table>
+
+					<?php }?>
+// borrowewd books
+                    <?php
+						if (isset($_POST['borrowed_books'])){
+							$results = $user_boorowed_books->fetchAll(PDO::FETCH_ASSOC);?>
+
+								<table class="table table-striped table-dark">
+									<thead>
+										<tr>
+											<th scope="col">#</th>
+											<th scope="col">Title</th>
+											<th scope="col">Author</th>
+											<th scope="col">Subject</th>
+										</tr>
+									</thead>
+									<tbody>
+							<?php
+							foreach($results as $row){
+								$row_id =$row['book_id'];
+								$sql1 =$conn->prepare("SELECT * FROM books WHERE id=$row_id");
+								$sql1->execute();
+								$results1 =$sql1->fetchAll(PDO::FETCH_ASSOC);
+								
+								foreach ($results1 as $line) {?>
+									<tr>
+										<td><?php echo $line['id'];?></td>
+										<td><?php echo $line['book_name'];?></td>
+										<td><?php echo $line['book_author'];?></td>
+										<td><?php echo $line['subject'];?></td>
+									</tr>
+								<?php } }?>
+									</tbody>
+								</table>
+					<?php }

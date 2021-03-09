@@ -17,7 +17,6 @@
   get users id, in the borrowed books tables, look for books under the user id
   for each book that the user has under his id, display book info from the book table, 
   */
-  $userimg= $_SESSION['image'];
 ?>
 
 <div class="d-flex" id="wrapper">
@@ -106,8 +105,8 @@
 				
 				<div class="result-holder">
   					<!--search results go here-->
-					<?php
-					if(isset($_POST['search'])){
+					<?php	
+						if(isset($_POST['search'])){
 						$searched_book=$_POST['book-search'];
 						$sql = $conn->prepare("SELECT * FROM books WHERE book_name='$searched_book'");
 						$sql->execute();
@@ -135,7 +134,37 @@
 								<?php }?>
 							</tbody>
 						</table>
-					<?php } ?>					
+					<?php } ?>
+					<?php	$results = $user_boorowed_books->fetchAll(PDO::FETCH_ASSOC);?>
+								<h3>Your books</h3>	
+								<table class="table table-striped table-dark">
+									<thead>
+										<tr>
+											<th scope="col">#</th>
+											<th scope="col">Title</th>
+											<th scope="col">Author</th>
+											<th scope="col">Subject</th>
+										</tr>
+									</thead>
+									<tbody>
+							<?php
+							foreach($results as $row){
+								$row_id =$row['book_id'];
+								$sql1 =$conn->prepare("SELECT * FROM books WHERE id=$row_id");
+								$sql1->execute();
+								$results1 =$sql1->fetchAll(PDO::FETCH_ASSOC);
+								
+								foreach ($results1 as $line) {?>
+									<tr>
+										<td><?php echo $line['id'];?></td>
+										<td><?php echo $line['book_name'];?></td>
+										<td><?php echo $line['book_author'];?></td>
+										<td><?php echo $line['subject'];?></td>
+									</tr>
+								<?php } }?>
+									</tbody>
+								</table>
+
 				
 
 <?php require "footer.php"; ?>

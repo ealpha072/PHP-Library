@@ -127,7 +127,7 @@
                 <!--end of pss-->
             </div><!-- /.nav-tabs-custom -->
         </div><!-- /.col -->
-    </div>
-    
+    </div>    
 </div>
+<script src="../js-files/script.js"></script>
 <?php require "footer.php";?>

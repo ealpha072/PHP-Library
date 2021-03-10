@@ -304,3 +304,27 @@
 
 
 
+    if(empty($email)){
+        echo "Please provide an email address!!"."<br>";
+        array_push($error,"Email Error");
+      }
+
+      //check if username is empty
+      if(empty($username)){
+        echo "Username is empty"."<br>";
+        array_push($error,"Username Error");
+      }
+
+      //check if password is empty
+      if(empty($password_1)){
+        echo "Please provide a password"."<br>";
+        array_push($error,"Password Error");
+      }
+
+      //check if confirm password is empty
+      if(empty($password_2)){
+        echo "Please confirm your password"."<br>";
+        array_push($error,"Password Error");
+      }
+
+

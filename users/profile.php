@@ -44,7 +44,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-2">
-                                    <div class="input-group"><div class="input-group-prepend prf"><span class="input-group-text ">Upl. Proof<i class="fas fa-info-circle ml-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Either images/pdf are allowed."></i></span> </div>
+                                    <div class="input-group"><div class="input-group-prepend prf"><span class="input-group-text ">Upl. Proof<i class="fa fa-info-circle ml-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Either images/pdf are allowed."></i></span> </div>
                                         <input type="file" class="form-control  text-sm">                                                   
                                     </div>
                                 </div>
@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="mb-2">
                                     <div class="input-group"><div class="input-group-prepend prf"><span class="input-group-text ">Email</span> </div>
-                                        <input type="email" class="form-control" readonly="">
+                                        <input type="email" class="form-control" readonly="" value="<?php echo $_SESSION["user_email"];?>">
                                     </div>
                                 </div>
                                 <div class="mb-2">

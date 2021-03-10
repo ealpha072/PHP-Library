@@ -28,3 +28,9 @@ ALTER TABLE `borrowed_books` ADD `time` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP 
 /*drop column*/
 ALTER TABLE `borrowed_books`
   DROP `user_name`;
+
+/* new columns*/
+ALTER TABLE `users` ADD `phone` INT(10) NOT NULL AFTER `user_image`, 
+ADD `course` VARCHAR(10) NOT NULL AFTER `phone`, 
+ADD `proof` VARCHAR(255) NOT NULL AFTER `course`, 
+ADD `study_year` VARCHAR(100) NOT NULL AFTER `proof`;

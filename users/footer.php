@@ -14,7 +14,7 @@
             $("#wrapper").toggleClass("toggled");
         });
 
-        $(".changepassword").click(function(e){
+        /*$(".changepassword").click(function(e){
             e.preventDefault();
             $(".updateprofile").hide(1000);
             $(".passwordchange").show(1000);
@@ -24,7 +24,7 @@
             e.preventDefault();
             $(".passwordchange").hide(1000);
             $(".updateprofile").show(1000);
-        })
+        })*/
 
     </script>
 </body>

@@ -2,13 +2,11 @@
       require "config.php";
 ?>
 
-
-<h4>Register to be a member</h4>
 <div class="row h-100 justify-content-center align-items-center">
 	<div class="col-10 col-md-8 col-lg-6">
 		<div class="reg-form">
 			<form action="registration.php" method="post" enctype="multipart/form-data">
-
+				<h4 class="text-center">Register to be a member</h4>
 				<div class="form-group input-group mb-3">
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
@@ -78,7 +76,7 @@
 						</div>
 					</div>
 					<div class="col-4">
-						<button type="submit" class="btn btn-primary" name="register"><i class="fa fa-paper-plane" aria-hidden="true"></i> Register</button>
+						<button type="submit" class="btn btn-secondary" name="register"><i class="fa fa-paper-plane" aria-hidden="true"></i> Register</button>
 					</div>
 				</div>
 				

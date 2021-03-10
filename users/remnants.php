@@ -301,3 +301,60 @@
             </div>
         </div>
     </div>
+
+
+    <div class="col userimage">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="../images/download.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col updateprofile">
+            <form action="" method="POST">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+            </form>
+        </div>
+
+
+
+///form for changing password
+
+<div class=" tab-pane">
+                                            
+                                            <form class="form-horizontal" wire:submit.prevent="savePassword">
+                                                <input type="hidden" name="_token" value="9QM5rt7kDVjhGGKhx90B2qfpCbfJo5pP2dAEZhoE">                                                <div class="mb-2">
+                                                    <div class="input-group"><div class="input-group-prepend pass"><span class="input-group-text ">Current Password</span> </div>
+                                                    <input type="password" class="form-control" wire:model.defer="current_password">
+                                                                                                        </div>
+                                                </div>
+
+                                                <div class="mb-2">
+                                                    <div class="input-group"><div class="input-group-prepend pass"><span class="input-group-text ">New Password</span> </div>
+                                                    <input type="password" class="form-control" wire:model.defer="password">
+                                                                                                        </div>
+                                                </div>
+
+                                                <div class="mb-2">
+                                                    <div class="input-group"><div class="input-group-prepend pass"><span class="input-group-text ">Confirm Password</span> </div>
+                                                    <input type="password" class="form-control" wire:model.defer="password_confirmation">
+                                                                                                        </div>
+                                                </div>
+
+                                                <div class="mb-2">
+                                                    <div class="input-group">
+                                                        <button type="submit" class="btn btn-sm btn-dark"><i class="fas fa-save mr-1"></i>Change Password
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+
+                                            </form>
+
+                                        </div>

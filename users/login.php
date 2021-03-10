@@ -25,7 +25,7 @@
 		<div class="row">
 			<div class="col-8">
 				<div class="icheck-primary">
-					<input type="checkbox" name="terms">
+					<input type="checkbox" name="terms" required>
 					<label for="agreetoterms">I Agree to <a href="">terms</a></label>
 				</div>
 			</div>

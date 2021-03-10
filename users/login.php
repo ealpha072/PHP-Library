@@ -36,6 +36,7 @@
 
       <div class="register">
         <p>Not yet a member? <a href="registration.php">Register</a></p>
+		<a href="forgotpassword.php">I forgot my password</a>
       </div>
     </form>
   </div>

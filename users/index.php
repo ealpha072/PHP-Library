@@ -30,9 +30,10 @@
 		</div>
         <div class="list-group list-group-flush">
             <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a>
-			<a href="userbooks.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-user" aria-hidden="true"></i> My Books</a>
+			<a href="userbooks.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-book" aria-hidden="true"></i> My Books</a>
             <a href="profile.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-user" aria-hidden="true"></i> My Profile</a>
-            <a href="" class="list-group-item list-group-item-action bg-light"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>            
+            <a href="" class="list-group-item list-group-item-action bg-light"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a> 
+			<a href="logout.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>           
         </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -67,10 +68,7 @@
                     			My Profile
                   			</a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="profile.php"><i class="fa fa-user" aria-hidden="true"></i> View Profile</a>
-                                <a class="dropdown-item" href="reset.php"><i class="fa fa-unlock" aria-hidden="true"></i> Password</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                                <a class="dropdown-item" href="profile.php"><i class="fa fa-user" aria-hidden="true"></i> View Profile</a>                            
                             </div>
                         </li>
                     </ul>

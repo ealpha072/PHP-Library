@@ -68,13 +68,13 @@
 				<!--userimage field-->
 				<div class="form-group input-group mb-3 b-lr-1">					
                         <div class="input-group-prepend prf"><span class="input-group-text ">Photo</span> </div>
-                        <input type="file" class="form-control  text-sm" accept=".jpg,.jpeg,.png" name="userimage">
+                        <input type="file" class="form-control  text-sm"  name="userimage">
 				</div>
 
 				<!--userimageproof field-->
 				<div class="form-group input-group mb-3 b-lr-1">					
                         <div class="input-group-prepend prf"><span class="input-group-text ">Upl Proof</span> </div>
-                        <input type="file" class="form-control  text-sm" accept=".jpg,.jpeg,.png" name="userimageproof">
+                        <input type="file" class="form-control  text-sm" name="userimageproof">
 				</div>
 
 				<!--submitbtn/terms field-->

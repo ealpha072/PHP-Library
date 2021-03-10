@@ -9,7 +9,7 @@
 
   $user_id = $_SESSION['id'];
   $user_boorowed_books=$conn-> prepare("SELECT book_id FROM borrowed_books WHERE user_id =$user_id");
-
+  $user_image_name=$_SESSION['image'];
   /*
   on start of the load, display the number of books a userr has borrowed and display the number
   on clicking my books, dispaly the info of borrowed books to user
@@ -25,7 +25,7 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="sidebar-heading">
 			<h4 class="heading">My Dashboard</h4> 
-			<img src = '../images/avatar.png'>
+			<img src = 'uploads/<?php echo $user_image_name;?>'>
 			<h5 class="username"><?php echo ucfirst($_SESSION["username"]);?></h5>
 		</div>
         <div class="list-group list-group-flush">

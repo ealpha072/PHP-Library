@@ -63,6 +63,16 @@
 		$study_year=$_POST['studyyear'];
       	$password_1 = $_POST['password_1'];
       	$password_2 = $_POST['password_2'];
+
+		$filename =$_FILES['userimage']['name'];
+		$file =$_FILES['userimage']['tmp-name'];
+		$destination = "uploads/".$filename;
+
+		if(move_uploaded_file($file,$destination)){
+			$msg = "Image uploaded successfully";
+		}else{
+			$msg='Failed to upload image';
+		}
 		
       	//check for password match
     	if(!($password_1===$password_2)){
@@ -83,24 +93,6 @@
 		//if everything is okay
       	if(count($error)===0){
 
-			//code for uploading image
-			$filename =$_FILES['userimage']['name'];
-
-			$destination = "uploads/".$filename;
-
-			$extension= pathinfo($filename,PATHINFO_EXTENSION);
-
-			//on the directory
-			$file =$_FILES['userimage']['tmp-name'];
-			$size =$_FILES['userimage']['size'];
-
-			//if file mvmt is successfull,
-			if(move_uploaded_file($file,$destination)){
-				$msg = "Image uploaded successfully";
-			}else{
-				$msg='Failed to upload image';
-			}
-			
 			//password processing and database entry
 			$password_1 = md5($password_1);
 			$sql = "INSERT INTO users (email,user_name,password,user_image,phone,course,proof,study_year) 

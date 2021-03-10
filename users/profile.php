@@ -29,10 +29,11 @@
             <div class="card">
                 <div class="card-header p-2">
                     <ul class="nav nav-pills">
-                        <li class="nav-item"><a class="nav-link active"  href="#" data-toggle="tab">My Details</a></li>
+                        <li class="nav-item"><a class="nav-link active details"  href="#" data-toggle="tab">My Details</a></li>
+                        <li class="nav-item"><a class="nav-link changepassword"  href="#" data-toggle="tab">Change Password</a></li>
                     </ul>
                 </div><!-- /.card-header -->
-                <div class="card-body">
+                <div class="card-body updateprofile">
                     <div class="tab-content">
                         <div class="tab-pane active">
                             <form class="form-horizontal">
@@ -86,11 +87,44 @@
                                         </button>
                                     </div>
                                 </div>
-
                             </form>
                         </div><!-- /.tab-pane -->                                        
                     </div><!-- /.tab-content -->
                 </div><!-- /.card-body -->
+                <!--password section-->
+                <div class=" tab-pane passwordchange" style="display: none;">                                            
+                    <form class="form-horizontal">
+                        <input type="hidden" name="_token">
+                        <div class="mb-2">
+                            <div class="input-group"><div class="input-group-prepend pass"><span class="input-group-text ">Current Password</span> </div>
+                                <input type="password" class="form-control">
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend pass">
+                                    <span class="input-group-text ">New Password</span> 
+                                </div>
+                                <input type="password" class="form-control">
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend pass">
+                                    <span class="input-group-text ">Confirm Password</span> 
+                                </div>
+                                <input type="password" class="form-control">
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="input-group">
+                                <button type="submit" class="btn btn-sm btn-dark"><i class="fa fa-save mr-1"></i>Change Password
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--end of pss-->
             </div><!-- /.nav-tabs-custom -->
         </div><!-- /.col -->
     </div>

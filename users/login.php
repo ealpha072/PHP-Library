@@ -25,8 +25,8 @@
 		<div class="row">
 			<div class="col-8">
 				<div class="icheck-primary">
-					<input type="checkbox" name="terms" required>
-					<label for="agreetoterms">I Agree to <a href="">terms</a></label>
+					<input type="checkbox" name="terms">
+					<label for="agreetoterms">Remember me</label>
 				</div>
 			</div>
 			<div class="col-4">
@@ -43,6 +43,6 @@
 </div>
 
 
-<?php require "infooter.php";
-      require "footer.php";
+<?php 
+    require "footer.php";
 ?>

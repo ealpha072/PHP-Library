@@ -64,80 +64,66 @@
   //register code
   if(isset($_POST['register'])){
     try{    
-      global $conn;
-      $error =[];
-      $username = $_POST['username'];
-      $email = $_POST['email'];
-      $password_1 = $_POST['password_1'];
-      $password_2 = $_POST['password_2'];
+    	global $conn;
 
-      //check if email is empty
-      if(empty($email)){
-        echo "Please provide an email address!!"."<br>";
-        array_push($error,"Email Error");
-      }
+      	$error =[];      	
+      	$email = $_POST['email'];
+		$username = $_POST['username'];
+		$phone =$_POST['phonenumber'];
+		$course =$_POST['course'];
+		$study_year=$_POST['studyyear'];
+      	$password_1 = $_POST['password_1'];
+      	$password_2 = $_POST['password_2'];
+		
 
-      //check if username is empty
-      if(empty($username)){
-        echo "Username is empty"."<br>";
-        array_push($error,"Username Error");
-      }
-
-      //check if password is empty
-      if(empty($password_1)){
-        echo "Please provide a password"."<br>";
-        array_push($error,"Password Error");
-      }
-
-      //check if confirm password is empty
-      if(empty($password_2)){
-        echo "Please confirm your password"."<br>";
-        array_push($error,"Password Error");
-      }
 
       //check for password match
-      if(!($password_1===$password_2)){
-        echo "Password mismatch, please provide matching passwords!";
-        array_push($error," Error");
-      }
+    	if(!($password_1===$password_2)){
+			echo "Password mismatch, please provide matching passwords!";
+			array_push($error," Error");
+    	}
 
-      //check if email exists in database
-      $sql1 = $conn->prepare("SELECT * FROM users WHERE email='$email' OR user_name ='$username'");
-      $sql1->execute();
-      $results = $sql1->rowCount();
+      	//check if email exists in database
+      	$sql1 = $conn->prepare("SELECT * FROM users WHERE email='$email' OR user_name ='$username'");
+      	$sql1->execute();
+      	$results = $sql1->rowCount();
 
-      if($results>1){
-        array_push($error,"User exists");
-        echo "Username or email already taken!!";
-      }
+      	if($results>1){
+        	array_push($error,"User exists");
+        	echo "Username or email already taken!!";
+      	}
 
-      if(count($error)===0){
-        //code for uploading image
-        $filename =$_FILES['userimage']['name'];
-        $tempname =$_FILES['userimage']['temp_name'];
-        $folder = "image/".$filename;
-        
-        //password processing and database entry
-        $password_1 = md5($password_1);
-        $sql = "INSERT INTO users (email,user_name,password,user_image) VALUES ('$email','$username','$password_1','$filename')";
-        $newResults=$conn->query($sql);
-        
-        if(move_uploaded_file($tempname,$folder)){
-          $msg = "Image uploaded successfully";
-        }else{
-          $msg='Failed to upload image';
-        }
-        //session variables
-        $_SESSION['loggedin']=true;
-        $_SESSION['username'] = $username;
-        $_SESSION['success'] = 'You are now logged in';
-        $_SESSION['user_email']=$email;
-        $_SESSION['password']=$password_1;
-        $_SESSION['image']= $filename;
-        
-        //echo $_SESSION['username'];
-        header('location:index.php');
-      }
+      	if(count($error)===0){
+
+			//code for uploading image
+			$filename =$_FILES['userimage']['name'];
+			$tempname =$_FILES['userimage']['temp_name'];
+			$folder = "image/".$filename;
+			
+			//password processing and database entry
+			$password_1 = md5($password_1);
+			$sql = "INSERT INTO users (email,user_name,password,user_image,phone,course,proof,study_year) 
+					VALUES ('$email','$username','$password_1',
+							'$filename','$phone','$course',0,'$study_year'
+					)";
+			$newResults=$conn->query($sql);
+			
+			if(move_uploaded_file($tempname,$folder)){
+			$msg = "Image uploaded successfully";
+			}else{
+			$msg='Failed to upload image';
+			}
+			//session variables
+			$_SESSION['loggedin']=true;
+			$_SESSION['username'] = $username;
+			$_SESSION['success'] = 'You are now logged in';
+			$_SESSION['user_email']=$email;
+			$_SESSION['password']=$password_1;
+			$_SESSION['image']= $filename;
+			
+			//echo $_SESSION['username'];
+			header('location:index.php');
+      	}
 
     }catch(Exception $e){
       die ("Error: Could not execute .$sql1 ".$e->getMessage());

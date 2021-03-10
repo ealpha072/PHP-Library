@@ -21,7 +21,7 @@
         })
 
         $(".details").click(function(e){
-            e.preventDefault;
+            e.preventDefault();
             $(".passwordchange").hide(1000);
             $(".updateprofile").show(1000);
         })

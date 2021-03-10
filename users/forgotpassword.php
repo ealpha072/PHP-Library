@@ -1,7 +1,7 @@
 <?php require "header.php";?>
 
 <div class="row h-100 justify-content-center align-items-center">
-    <div class="col-10 col-md-8 col-lg-6">
+    <div class="col-10 col-md-8 col-lg-4">
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="text-center">Fill in your email to receive a reset link to your email.</p>

@@ -3,7 +3,7 @@
 ?>
 
 <div class="row h-100 justify-content-center align-items-center">
-  <div class="col-10 col-md-8 col-lg-6">
+  <div class="col-10 col-md-8 col-lg-4">
   <h3>Login</h3>
     <form action="login.php" method="post">
 

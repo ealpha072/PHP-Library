@@ -3,7 +3,7 @@
 ?>
 
 <div class="row h-100 justify-content-center align-items-center">
-	<div class="col-10 col-md-8 col-lg-6">
+	<div class="col-10 col-md-8 col-lg-4">
 		<div class="reg-form">
 			<form action="registration.php" method="post" enctype="multipart/form-data">
 				<h4 class="text-center">Register to be a member</h4>
@@ -25,7 +25,7 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon1"><i class="fa fa-phone" aria-hidden="true"></i></span>
 					</div>
-					<input type="text" class="form-control" placeholder="Phone Number" name="phonenumber" required>
+					<input type="number" class="form-control" placeholder="Phone Number" name="phonenumber" required maxlength="10">
 				</div>
 
 				<div class="form-group input-group mb-3">

@@ -24,17 +24,6 @@
     $password = $_POST['password'];
     $errors=[];
 
-    //check if email is empty
-    if(empty($email)){
-      array_push($errors,"No email address provided");
-      echo "Please provide a email address"."<br>";
-    }
-
-    if(empty($password)){
-      array_push($errors,"Please provide a password");
-      echo "Please provide a password";
-    }
-
     if(count($errors)===0){
         $password =md5($password);
         $sql = $conn->prepare("SELECT * FROM users where email='$email' AND password='$password'");
@@ -44,18 +33,18 @@
 
         if($num_rows===1){
 
-          $_SESSION['loggedin']=true;
-          $_SESSION['username'] = $result[0]['user_name'];
-          $_SESSION['user_email']=$result[0]['email'];
-          $_SESSION['id']= $result[0]['id'];
-          $_SESSION['password']=$result[0]['password'];
-          $_SESSION['image']=$result[0]['user_image'];
+        	$_SESSION['loggedin']=true;
+          	$_SESSION['username'] = $result[0]['user_name'];
+          	$_SESSION['user_email']=$result[0]['email'];
+          	$_SESSION['id']= $result[0]['id'];
+          	$_SESSION['password']=$result[0]['password'];
+          	$_SESSION['image']=$result[0]['user_image'];
           
-          header("location:index.php");
+          	header("location:index.php");
           //echo var_dump($result);
         }else{
-          echo $num_rows."<br>";
-          echo "Invalid email or password!!";
+          	echo $num_rows."<br>";
+          	echo "Invalid email or password!!";
         }
       }
 
@@ -63,9 +52,9 @@
 
   //register code
   if(isset($_POST['register'])){
-    try{    
+    try{ 
+		//setting variables   
     	global $conn;
-
       	$error =[];      	
       	$email = $_POST['email'];
 		$username = $_POST['username'];
@@ -75,9 +64,7 @@
       	$password_1 = $_POST['password_1'];
       	$password_2 = $_POST['password_2'];
 		
-
-
-      //check for password match
+      	//check for password match
     	if(!($password_1===$password_2)){
 			echo "Password mismatch, please provide matching passwords!";
 			array_push($error," Error");
@@ -93,12 +80,26 @@
         	echo "Username or email already taken!!";
       	}
 
+		//if everything is okay
       	if(count($error)===0){
 
 			//code for uploading image
 			$filename =$_FILES['userimage']['name'];
-			$tempname =$_FILES['userimage']['temp_name'];
-			$folder = "image/".$filename;
+
+			$destination = "uploads/".$filename;
+
+			$extension= pathinfo($filename,PATHINFO_EXTENSION);
+
+			//on the directory
+			$file =$_FILES['userimage']['tmp-name'];
+			$size =$_FILES['userimage']['size'];
+
+			//if file mvmt is successfull,
+			if(move_uploaded_file($file,$destination)){
+				$msg = "Image uploaded successfully";
+			}else{
+				$msg='Failed to upload image';
+			}
 			
 			//password processing and database entry
 			$password_1 = md5($password_1);
@@ -108,13 +109,9 @@
 					)";
 			$newResults=$conn->query($sql);
 			
+			//get last inserted id
 			$last_id = $conn->lastInsertId();
 
-			if(move_uploaded_file($tempname,$folder)){
-			$msg = "Image uploaded successfully";
-			}else{
-			$msg='Failed to upload image';
-			}
 			//session variables
 			$_SESSION['id'] =$last_id;
 			$_SESSION['loggedin']=true;
@@ -124,7 +121,7 @@
 			$_SESSION['password']=$password_1;
 			$_SESSION['image']= $filename;
 			
-			//echo $_SESSION['username'];
+			//redirect users
 			header('location:index.php');
       	}
 

@@ -56,7 +56,7 @@
 									<label for="search" class="sr-only">Search</label>
 									<input type="text" class="form-control" id="" placeholder="Search Book" name="book-search" required>
 								</div>
-								<button type="submit" class="btn btn-primary mb-2" name="search"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+								<button type="submit" class="btn btn-primary mb-2 search-book" name="search"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
 							</form>
 						</li>
 						<li class="nav-item active">

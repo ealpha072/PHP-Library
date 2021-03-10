@@ -14,3 +14,8 @@ $(".details").click(function(e) {
     $(".passwordchange").hide(1000);
     $(".updateprofile").show(1000);
 })
+
+/*$(".search-book").click(function(e) {
+    e.preventDefault();
+    $('.').hide();
+}) */

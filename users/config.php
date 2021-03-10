@@ -108,12 +108,15 @@
 					)";
 			$newResults=$conn->query($sql);
 			
+			$last_id = $conn->lastInsertId();
+
 			if(move_uploaded_file($tempname,$folder)){
 			$msg = "Image uploaded successfully";
 			}else{
 			$msg='Failed to upload image';
 			}
 			//session variables
+			$_SESSION['id'] =$last_id;
 			$_SESSION['loggedin']=true;
 			$_SESSION['username'] = $username;
 			$_SESSION['success'] = 'You are now logged in';

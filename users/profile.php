@@ -39,22 +39,17 @@
                 <div class="card-body updateprofile">
                     <div class="tab-content">
                         <div class="tab-pane active">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" method="POST" action="">
                                 <input type="hidden" name="_token">
                                 <div class="mb-2">
                                     <div class="input-group">
                                         <div class="input-group-prepend prf"><span class="input-group-text ">Upl. Image</span> </div>
-                                        <input type="file" class="form-control  text-sm" accept=".jpg,.jpeg,.png">
-                                    </div>
-                                </div>
-                                <div class="mb-2">
-                                    <div class="input-group"><div class="input-group-prepend prf"><span class="input-group-text ">Upl. Proof<i class="fa fa-info-circle ml-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Either images/pdf are allowed."></i></span> </div>
-                                        <input type="file" class="form-control  text-sm">                                                   
+                                        <input type="file" class="form-control  text-sm" name="user_image">
                                     </div>
                                 </div>
                                 <div class="mb-2">
                                     <div class="input-group"><div class="input-group-prepend prf"><span class="input-group-text ">Full Name</span> </div>
-                                        <input type="text" class="form-control" >
+                                        <input type="text" class="form-control" readonly value="<?php echo $_SESSION['username']; ?>">
                                     </div>
                                 </div>
                                 <div class="mb-2">
@@ -64,12 +59,12 @@
                                 </div>
                                 <div class="mb-2">
                                     <div class="input-group"><div class="input-group-prepend prf"><span class="input-group-text ">Phone</span> </div>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="number">
                                     </div>
                                 </div>                           
                                 <div class="mb-2">
                                     <div class="input-group"><div class="input-group-prepend prf"><span class="input-group-text ">Address</span> </div>
-                                        <textarea class="form-control" ></textarea>
+                                        <textarea class="form-control" name="address"></textarea>
                                     </div>
                                 </div>
                                 <div class="mb-2">
@@ -86,7 +81,7 @@
                                 </div>
                                 <div class="mb-2">
                                     <div class="input-group">
-                                        <button type="submit" class="btn btn-sm btn-dark"><i class="fa fa-save mr-1"></i>Save Profile
+                                        <button type="submit" class="btn btn-sm btn-dark" name="save-profile"><i class="fa fa-save mr-1"></i>Save Profile
                                         </button>
                                     </div>
                                 </div>

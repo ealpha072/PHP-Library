@@ -17,6 +17,7 @@
   get users id, in the borrowed books tables, look for books under the user id
   for each book that the user has under his id, display book info from the book table, 
   */
+  echo $user_image_name;
 ?>
 
 <div class="d-flex" id="wrapper">

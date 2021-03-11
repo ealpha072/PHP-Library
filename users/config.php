@@ -39,6 +39,8 @@
           	$_SESSION['id']= $result[0]['id'];
           	$_SESSION['password']=$result[0]['password'];
           	$_SESSION['image']=$result[0]['user_image'];
+			$_SESSION['course'] =$result[0]['course'];
+			$_SESSION['yr']=$result[0]['study_year'];
           
           	header("location:index.php");
           //echo var_dump($result);
@@ -65,13 +67,18 @@
       	$password_2 = $_POST['password_2'];
 
 		$filename =$_FILES['userimage']['name'];
-		$file =$_FILES['userimage']['tmp-name'];
+		$file =$_FILES['userimage']['tmp_name'];
 		$destination = "uploads/".$filename;
+		$extension =pathinfo($filename, PATHINFO_EXTENSION);
 
-		if(move_uploaded_file($file,$destination)){
-			$msg = "Image uploaded successfully";
+		if(!in_array($extension,['png','jpg','jpeg'])){
+			echo "You file extension type is not allowed";
 		}else{
-			$msg='Failed to upload image';
+			if(move_uploaded_file($file,$destination)){
+				echo "Success";
+			}else{
+				echo  "Failed";
+			}
 		}
 		
       	//check for password match
@@ -112,6 +119,8 @@
 			$_SESSION['user_email']=$email;
 			$_SESSION['password']=$password_1;
 			$_SESSION['image']= $filename;
+			$_SESSION['course'] =$course;
+			$_SESSION['yr']=$study_year;
 			
 			//redirect users
 			header('location:index.php');

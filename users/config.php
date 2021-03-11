@@ -157,6 +157,7 @@
 
 		$sql =$conn->prepare("UPDATE users SET user_image='$filename',phone='$phone', address='$address' WHERE id=$id");
 		$sql->execute();
+		unlink("uploads/".$_SESSION['image']);
 
 		$_SESSION['image']= $filename;
 

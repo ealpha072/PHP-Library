@@ -71,11 +71,12 @@
                         <input type="file" class="form-control  text-sm"  name="userimage">
 				</div>
 
-				<!--userimageproof field-->
+				<!--//address-->
 				<div class="form-group input-group mb-3 b-lr-1">					
-                        <div class="input-group-prepend prf"><span class="input-group-text ">Upl Proof</span> </div>
-                        <input type="file" class="form-control  text-sm" name="userimageproof">
+                        <div class="input-group-prepend prf"><span class="input-group-text ">Address</span> </div>
+                        <input type="text" class="form-control  text-sm"  name="address">
 				</div>
+
 
 				<!--submitbtn/terms field-->
 				<div class="row">

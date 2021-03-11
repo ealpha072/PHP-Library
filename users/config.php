@@ -16,6 +16,7 @@
   }catch(Exception $e){
     echo "Connection failed ".$e->getMessage();
   }
+  
   //login code
   if(isset($_POST['login'])){
     global $conn;

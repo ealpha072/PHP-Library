@@ -17,7 +17,6 @@
   get users id, in the borrowed books tables, look for books under the user id
   for each book that the user has under his id, display book info from the book table, 
   */
-  echo $user_image_name;
 ?>
 
 <div class="d-flex" id="wrapper">
@@ -26,7 +25,7 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="sidebar-heading">
 			<h4 class="heading">My Dashboard</h4> 
-			<img src = 'uploads/<?php echo $user_image_name;?>'>
+			<img src = 'uploads/<?php echo $user_image_name;?>' class="img-fluid img-thumbnail">
 			<h5 class="username"><?php echo ucfirst($_SESSION["username"]);?></h5>
 		</div>
         <div class="list-group list-group-flush">

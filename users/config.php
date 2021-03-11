@@ -53,7 +53,7 @@
 
   }
 
-  //register code
+  	//register code
 	if(isset($_POST['register'])){
 		try{ 
 			//setting variables   
@@ -138,11 +138,11 @@
 		//
 		$phone =$_POST['number'];
 		$address =$_POST['address'];
-		/*
+		
 		//image
 		$filename =$_FILES['user_image']['name'];
 		$file =$_FILES['user_image']['tmp_name'];
-		$destination="upload/".$filename;
+		$destination="uploads/".$filename;
 		$extension=pathinfo($filename,PATHINFO_EXTENSION);
 
 		if(!in_array($extension,['png','jpg','jpeg'])){
@@ -153,10 +153,12 @@
 			}else{
 				echo 'Failed';
 			}
-		}*/
+		}
 
-		$sql =$conn->prepare("UPDATE users SET phone='$phone', address='$address' WHERE id=$id");
+		$sql =$conn->prepare("UPDATE users SET user_image='$filename',phone='$phone', address='$address' WHERE id=$id");
 		$sql->execute();
+
+		$_SESSION['image']= $filename;
 
 		header("Location: index.php");
 

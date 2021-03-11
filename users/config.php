@@ -165,4 +165,38 @@
 		header("Location: index.php");
 	}
 
+	if(isset($_POST['change-password'])){
+		$email =$_SESSION['user_email'];
+		$pass =$_SESSION['password'];
+		
+		//form inputs
+		$current =md5($_POST['current']);
+		$new_p=md5($_POST['new-p']);
+		$confirm_p =md5($_POST['confirm-p']);
+
+		//matching new and old password
+		if($new_p!=$confirm_p){
+			echo "Passowrds mismatch..new and confirm";
+		}else{
+			/*first, match new passwords with confirm pass,
+			if they dont match, alert user..if they match, get users 
+			current password from database and comapre it to current p
+			, if they match, reset the password, if they dont,	
+			*/
+
+			if($current!=$pass){
+				echo 'Password mismatch..current and db'."<br>";
+				echo $current."<br>";
+				echo $pass;
+			}else{
+				//update user pass
+				$sql = $conn->prepare("UPDATE users SET password='$new_p' WHERE email='$email' ");
+            	$sql->execute();
+				header('location: index.php');
+			}
+
+		}
+
+	}
+
 ?>

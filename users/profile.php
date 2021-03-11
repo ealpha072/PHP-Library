@@ -91,32 +91,32 @@
                 </div><!-- /.card-body -->
                 <!--password section-->
                 <div class=" tab-pane passwordchange" style="display: none;">                                            
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" method="POST" action="">
                         <input type="hidden" name="_token">
                         <div class="mb-2">
                             <div class="input-group"><div class="input-group-prepend pass"><span class="input-group-text ">Current Password</span> </div>
-                                <input type="password" class="form-control">
+                                <input type="password" class="form-control" name="current">
                             </div>
                         </div>
                         <div class="mb-2">
                             <div class="input-group">
                                 <div class="input-group-prepend pass">
-                                    <span class="input-group-text ">New Password</span> 
+                                    <span class="input-group-text">New Password</span> 
                                 </div>
-                                <input type="password" class="form-control">
+                                <input type="password" class="form-control" name="new-p">
                             </div>
                         </div>
                         <div class="mb-2">
                             <div class="input-group">
                                 <div class="input-group-prepend pass">
-                                    <span class="input-group-text ">Confirm Password</span> 
+                                    <span class="input-group-text">Confirm Password</span> 
                                 </div>
-                                <input type="password" class="form-control">
+                                <input type="password" class="form-control" name="confirm-p">
                             </div>
                         </div>
                         <div class="mb-2">
                             <div class="input-group">
-                                <button type="submit" class="btn btn-sm btn-dark"><i class="fa fa-save mr-1"></i>Change Password
+                                <button type="submit" class="btn btn-sm btn-dark" name="change-password"><i class="fa fa-save mr-1"></i>Change Password
                                 </button>
                             </div>
                         </div>

@@ -80,7 +80,7 @@
                 <!--main content goes here-->
 				<div class="row user-info-holder">
 					<!--holds the display divs for borrowed bks etc-->
-					<div class="col b-b">
+					<div class="col b-b" style="background-color: #164777; color:white">
 						<h4>Borrowed Books</h4>
 						<?php
 							$user_boorowed_books->execute();
@@ -88,15 +88,15 @@
 						?>
 						<h1 class="user-books"><?php echo $num_rows;?></h1>						
 					</div>
-					<div class="col f-c">						
+					<div class="col f-c" style="background-color:#8c560c; color:white">						
 						<h4>Fines collected</h4>
 						<h1 class="fines">40</h1>
 					</div>
-					<div class="col o-t">						
+					<div class="col o-t" style="background-color: #b4c2d0; color:white">						
 						<h4>Returned</h4>
 						<h1 class="returned">3</h1>
 					</div>
-					<div class="col c-e">						
+					<div class="col c-e" style="background-color: #155724; color:white">						
 						<h4>Credits Earned</h4>
 						<h1 class="credits">100</h1>
 					</div>

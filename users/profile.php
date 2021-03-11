@@ -39,7 +39,7 @@
                 <div class="card-body updateprofile">
                     <div class="tab-content">
                         <div class="tab-pane active">
-                            <form class="form-horizontal" method="POST" action="">
+                            <form class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
                                 <input type="hidden" name="_token">
                                 <div class="mb-2">
                                     <div class="input-group">

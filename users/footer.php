@@ -14,6 +14,10 @@
             $("#wrapper").toggleClass("toggled");
         });
 
+        $("input.sb").focus(function(e) {
+            $('.result-holder').html('').fadeOut(2000);
+        })
+
     </script>
 </body>
 </html>

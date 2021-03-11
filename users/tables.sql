@@ -34,3 +34,10 @@ ALTER TABLE `users` ADD `phone` INT(10) NOT NULL AFTER `user_image`,
 ADD `course` VARCHAR(10) NOT NULL AFTER `phone`, 
 ADD `proof` VARCHAR(255) NOT NULL AFTER `course`, 
 ADD `study_year` VARCHAR(100) NOT NULL AFTER `proof`;
+
+/*dropped the proof column*/
+ALTER TABLE `users`
+  DROP `proof`;
+
+/*added address column*/
+ALTER TABLE `users` ADD `address` VARCHAR(50) NOT NULL AFTER `study_year`

@@ -15,10 +15,13 @@
             <div class="card">
                 <div class="card-body box-profile">
                     <div class="text-center">
-                        <img class="profile-user-img img-fluid img-thumbnail border-0" src="../images/avatar.png" alt="">
+                        <img class="profile-user-img img-fluid img-thumbnail border-0" src="uploads/<?php echo $user_image_name?>" alt="">
                     </div>
                     <h3 class="profile-username text-center"><?php echo ucfirst($_SESSION["username"]);?></h3>
-                    <p class="text-muted text-center"> <span class="badge badge-dark">Student</span><span class="badge badge-dark">Mba | 1St Year</span><br></p>                                                                        
+                    <p class="text-muted text-center"> 
+                        <span class="badge badge-dark">Student</span>
+                        <span class="badge badge-dark"><?php echo $_SESSION['course']?> | Year <?php echo $_SESSION['yr']?></span><br>
+                    </p>                                                                        
                 </div>
                 <!-- /.card-body -->
             </div>

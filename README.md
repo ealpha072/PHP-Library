@@ -32,3 +32,4 @@ On loading of the page, a user can either register or login with his credentials
   * Hashing passwords
   * Better sql queries ..prepared stmts
 * Add admin pages 
+* Remember to use html special chars

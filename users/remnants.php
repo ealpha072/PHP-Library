@@ -328,3 +328,15 @@
       }
 
 
+      <form method="POST" action="">
+	Name: <input type="text" name="name" value="<?php if (isset($name)) echo $name; ?>">
+	<span class="error"><?php if (isset($nameError)) echo $nameError ?></span>
+
+	Email: <input type="text" name="email" value="<?php if (isset($email)) echo $email; ?>">
+	<span class="error"><?php if (isset($emailError)) echo $emailError ?></span>
+	<input type="submit" name="submit">
+</form>
+
+$remember = validate($_POST['remember']);
+$remember = filter_var($remember, FILTER_VALIDATE_BOOLEAN);
+

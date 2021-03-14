@@ -6,6 +6,9 @@
   $username = "root";
   $password = "";
   $msg='';
+  $loginErrors=[];
+  $regErrors =[];
+  $globalErrors=[];
 
   try{
     $conn = new PDO($dsn,$username,$password);
@@ -18,14 +21,20 @@
   }
   
   //login code
-  if(isset($_POST['login'])){
+  if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
     global $conn;
 
-    $email = $_POST['email'];
+    $email = trim(htmlspecialchars($_POST['email']));
     $password = $_POST['password'];
-    $errors=[];
+    
+	//validating email
 
-    if(count($errors)===0){
+	if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+		$loginEmailError ="Invalid email format";
+		array_push($loginErrors, $loginEmailError);
+	}
+
+    if(count($loginErrors)===0){
         $password =md5($password);
         $sql = $conn->prepare("SELECT * FROM users where email='$email' AND password='$password'");
         $sql->execute();
@@ -46,8 +55,10 @@
           	header("location:index.php");
           //echo var_dump($result);
         }else{
-          	echo $num_rows."<br>";
-          	echo "Invalid email or password!!";
+			$invalid ="Inavalid email address or password";
+			array_push($globalErrors,$invalid);
+          	//echo $num_rows."<br>";
+          	//echo "Invalid email or password!!";
         }
       }
 
@@ -64,27 +75,27 @@
 			$phone =trim(htmlspecialchars( $_POST['phonenumber']));
 			$course =trim(htmlspecialchars( $_POST['course']));
 			$study_year=trim(htmlspecialchars( $_POST['studyyear']));
-			$password_1 = trim(htmlspecialchars( $_POST['password_1']));
-			$password_2 = trim(htmlspecialchars( $_POST['password_2']));
+			$password_1 =  $_POST['password_1'];
+			$password_2 =$_POST['password_2'];
 			$address =trim(htmlspecialchars( $_POST['address']));
 
 			//input validation....
 			//name validation
 			if(!preg_match('/^[a-zA-Z\s]+$/',$username)){
 				$nameError ="Invalid name format, name should only contain letters";
-				array_push($error, $nameError);
+				array_push($regErrors, $nameError);
 			}
 
 			//email validation
 			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 				$emailError ="Invalid email format";
-				array_push($error, $emailError);
+				array_push($regErrors, $emailError);
 			}
 
 			//password validation
 			if(strlen($password_1)<6){
 				$passwordError ="Password is too short, must be more than 6 characters";
-				array_push($error, $passwordError);
+				array_push($regErrors, $passwordError);
 			}
 
 
@@ -116,12 +127,12 @@
 
 			if($results>1){
 				$emailTakenError ='Email already exist, please use a different one';
-				array_push($error,$emailTakenError);
+				array_push($regErrors,$emailTakenError);
 				echo "Username or email already taken!!";
 			}
 
 			//if everything is okay
-			if(count($error)===0){
+			if(count($regErrors)===0){
 
 				//password processing and database entry
 				$password_1 = md5($password_1);

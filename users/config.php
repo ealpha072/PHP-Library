@@ -2,9 +2,12 @@
   #creating a new connection
 
   session_start();
+  //database vars
   $dsn = "mysql:host=localhost;dbname=library;charset=utf8mb4";
   $username = "root";
   $password = "";
+
+  //error variables
   $msg='';
   $loginErrors=[];
   $regErrors =[];
@@ -20,49 +23,49 @@
     echo "Connection failed ".$e->getMessage();
   }
   
-  //login code
-  if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
-    global $conn;
+  	//login code
+	if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
+		global $conn;
 
-    $email = trim(htmlspecialchars($_POST['email']));
-    $password = $_POST['password'];
-    
-	//validating email
+		$email = trim(htmlspecialchars($_POST['email']));
+		$password = $_POST['password'];
+		
+		//validating email
 
-	if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-		$loginEmailError ="Invalid email format";
-		array_push($loginErrors, $loginEmailError);
+		if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+			$loginEmailError ="Invalid email format";
+			array_push($loginErrors, $loginEmailError);
+		}
+
+		if(count($loginErrors)===0){
+			$password =md5($password);
+			$sql = $conn->prepare("SELECT * FROM users where email='$email' AND password='$password'");
+			$sql->execute();
+			$num_rows = $sql->rowCount();
+			$result = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			if($num_rows===1){
+
+				$_SESSION['loggedin']=true;
+				$_SESSION['username'] = $result[0]['user_name'];
+				$_SESSION['user_email']=$result[0]['email'];
+				$_SESSION['id']= $result[0]['id'];
+				$_SESSION['password']=$result[0]['password'];
+				$_SESSION['image']=$result[0]['user_image'];
+				$_SESSION['course'] =$result[0]['course'];
+				$_SESSION['yr']=$result[0]['study_year'];
+			
+				header("location:index.php");
+			//echo var_dump($result);
+			}else{
+				$invalid ="Inavalid email address or password";
+				array_push($globalErrors,$invalid);
+				//echo $num_rows."<br>";
+				//echo "Invalid email or password!!";
+			}
+		}
+
 	}
-
-    if(count($loginErrors)===0){
-        $password =md5($password);
-        $sql = $conn->prepare("SELECT * FROM users where email='$email' AND password='$password'");
-        $sql->execute();
-        $num_rows = $sql->rowCount();
-        $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-        if($num_rows===1){
-
-        	$_SESSION['loggedin']=true;
-          	$_SESSION['username'] = $result[0]['user_name'];
-          	$_SESSION['user_email']=$result[0]['email'];
-          	$_SESSION['id']= $result[0]['id'];
-          	$_SESSION['password']=$result[0]['password'];
-          	$_SESSION['image']=$result[0]['user_image'];
-			$_SESSION['course'] =$result[0]['course'];
-			$_SESSION['yr']=$result[0]['study_year'];
-          
-          	header("location:index.php");
-          //echo var_dump($result);
-        }else{
-			$invalid ="Inavalid email address or password";
-			array_push($globalErrors,$invalid);
-          	//echo $num_rows."<br>";
-          	//echo "Invalid email or password!!";
-        }
-      }
-
-  }
 
   	//register code
 	if(isset($_POST['register']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -168,8 +171,8 @@
 	if(isset($_POST['save-profile'])){
 		$id =$_SESSION['id'];
 		//
-		$phone =$_POST['number'];
-		$address =$_POST['address'];
+		$phone =trim(htmlspecialchars($_POST['number']));
+		$address =trim(htmlspecialchars($_POST['address']));
 		
 		//image
 		$filename =$_FILES['user_image']['name'];
@@ -197,18 +200,21 @@
 		header("Location: index.php");
 	}
 
-	if(isset($_POST['change-password'])){
+	if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['change-password'])){
+		//get session variables
 		$email =$_SESSION['user_email'];
 		$pass =$_SESSION['password'];
 		
-		//form inputs
+		//get form inputs
 		$current =md5($_POST['current']);
 		$new_p=md5($_POST['new-p']);
 		$confirm_p =md5($_POST['confirm-p']);
 
 		//matching new and old password
 		if($new_p!=$confirm_p){
-			echo "Passowrds mismatch..new and confirm";
+			$mismatchError ="Please confirm your new password correctly";
+			array_push($globalErrors,$mismatchError);
+			//echo "Passowrds mismatch..new and confirm";
 		}else{
 			/*first, match new passwords with confirm pass,
 			if they dont match, alert user..if they match, get users 
@@ -217,9 +223,9 @@
 			*/
 
 			if($current!=$pass){
+				$passMismatch ='Current password doesnt match your old password';
+				array_push($globalErrors,$passMismatch);
 				echo 'Password mismatch..current and db'."<br>";
-				echo $current."<br>";
-				echo $pass;
 			}else{
 				//update user pass
 				$sql = $conn->prepare("UPDATE users SET password='$new_p' WHERE email='$email' ");

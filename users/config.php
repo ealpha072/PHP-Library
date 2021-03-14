@@ -168,7 +168,7 @@
 		}
 	}
 
-	if(isset($_POST['save-profile'])){
+	if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['save-profile'])){
 		$id =$_SESSION['id'];
 		//
 		$phone =trim(htmlspecialchars($_POST['number']));

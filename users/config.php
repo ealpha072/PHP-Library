@@ -13,15 +13,24 @@
   $regErrors =[];
   $globalErrors=[];
 
-  try{
-    $conn = new PDO($dsn,$username,$password);
-    //set PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-    //echo "Connected successfully!!"."<br>";
-    //$conn->getAttribute(constant("PDO::ATTR_CONNECTION_STATUS"));
-  }catch(Exception $e){
-    echo "Connection failed ".$e->getMessage();
-  }
+	//connection to database
+	try{
+		$conn = new PDO($dsn,$username,$password);
+		//set PDO error mode to exception
+		$conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+		//echo "Connected successfully!!"."<br>";
+		//$conn->getAttribute(constant("PDO::ATTR_CONNECTION_STATUS"));
+  	}catch(Exception $e){
+    	echo "Connection failed ".$e->getMessage();
+  	}
+
+	//prepiring sql statements
+	$sql1 = $conn->prepare("SELECT * FROM users where email=? AND password=?");	//login sql
+	$sql2 = $conn->prepare("SELECT * FROM users WHERE email=?");	//check if username or email exists
+	$sql3 = $conn->prepare("INSERT INTO users (email,user_name,password,user_image,phone,course,study_year,address) VALUES (?,?,?,?,?,?,?,?)");	//reg sql
+
+	$sql4 =$conn->prepare("UPDATE users SET user_image=?,phone=?, address=? WHERE id=?");	//update user profile
+	$sql5 = $conn->prepare("UPDATE users SET password=? WHERE email=? ");	//update password
   
   	//login code
 	if(isset($_POST['login']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -39,10 +48,12 @@
 
 		if(count($loginErrors)===0){
 			$password =md5($password);
-			$sql = $conn->prepare("SELECT * FROM users where email='$email' AND password='$password'");
-			$sql->execute();
-			$num_rows = $sql->rowCount();
-			$result = $sql->fetchAll(PDO::FETCH_ASSOC);
+			//$sql = $conn->prepare("SELECT * FROM users where email='$email' AND password='$password'");
+			$sql1->bindParam(':email',$email, PDO::PARAM_STR);
+			$sql1->bindParam(':password',$password, PDO::PARAM_STR);
+			$sql1->execute();
+			$num_rows = $sql1->rowCount();
+			$result = $sql1->fetchAll(PDO::FETCH_ASSOC);
 
 			if($num_rows===1){
 
@@ -124,9 +135,10 @@
 			}
 
 			//check if email exists in database
-			$sql1 = $conn->prepare("SELECT * FROM users WHERE email='$email' OR user_name ='$username'");
-			$sql1->execute();
-			$results = $sql1->rowCount();
+			//$sql1 = $conn->prepare("SELECT * FROM users WHERE email='$email' OR user_name ='$username'");
+			
+			$sql2->execute(array($email));
+			$results = $sql2->rowCount();
 
 			if($results>1){
 				$emailTakenError ='Email already exist, please use a different one';
@@ -139,11 +151,13 @@
 
 				//password processing and database entry
 				$password_1 = md5($password_1);
-				$sql = "INSERT INTO users (email,user_name,password,user_image,phone,course,study_year,address) 
+				/*$sql = "INSERT INTO users (email,user_name,password,user_image,phone,course,study_year,address) 
 						VALUES ('$email','$username','$password_1',
 								'$filename','$phone','$course','$study_year','$address'
-						)";
-				$newResults=$conn->query($sql);
+						)";*/
+				$sql3->execute(array($email,$username,$password_1,$filename,$phone,$course,$study_year,$address));
+				
+				//$newResults=$conn->query($sql);
 				
 				//get last inserted id
 				$last_id = $conn->lastInsertId();

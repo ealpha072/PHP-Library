@@ -68,6 +68,26 @@
 			$password_2 = trim(htmlspecialchars( $_POST['password_2']));
 			$address =trim(htmlspecialchars( $_POST['address']));
 
+			//input validation....
+			//name validation
+			if(!preg_match('/^[a-zA-Z\s]+$/',$username)){
+				$nameError ="Invalid name format, name should only contain letters";
+				array_push($error, $nameError);
+			}
+
+			//email validation
+			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+				$emailError ="Invalid email format";
+				array_push($error, $emailError);
+			}
+
+			//password validation
+			if(strlen($password_1)<6){
+				$passwordError ="Password is too short, must be more than 6 characters";
+				array_push($error, $passwordError);
+			}
+
+
 			$filename =$_FILES['userimage']['name'];
 			$file =$_FILES['userimage']['tmp_name'];
 			$destination = "uploads/".$filename;
@@ -95,7 +115,8 @@
 			$results = $sql1->rowCount();
 
 			if($results>1){
-				array_push($error,"User exists");
+				$emailTakenError ='Email already exist, please use a different one';
+				array_push($error,$emailTakenError);
 				echo "Username or email already taken!!";
 			}
 

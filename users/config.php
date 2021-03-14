@@ -54,19 +54,19 @@
   }
 
   	//register code
-	if(isset($_POST['register'])){
+	if(isset($_POST['register']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
 		try{ 
 			//setting variables   
 			global $conn;
 			$error =[];      	
-			$email = $_POST['email'];
-			$username = $_POST['username'];
-			$phone =$_POST['phonenumber'];
-			$course =$_POST['course'];
-			$study_year=$_POST['studyyear'];
-			$password_1 = $_POST['password_1'];
-			$password_2 = $_POST['password_2'];
-			$address =$_POST['address'];
+			$email = trim(htmlspecialchars( $_POST['email']));
+			$username = trim(htmlspecialchars( $_POST['username']));
+			$phone =trim(htmlspecialchars( $_POST['phonenumber']));
+			$course =trim(htmlspecialchars( $_POST['course']));
+			$study_year=trim(htmlspecialchars( $_POST['studyyear']));
+			$password_1 = trim(htmlspecialchars( $_POST['password_1']));
+			$password_2 = trim(htmlspecialchars( $_POST['password_2']));
+			$address =trim(htmlspecialchars( $_POST['address']));
 
 			$filename =$_FILES['userimage']['name'];
 			$file =$_FILES['userimage']['tmp_name'];

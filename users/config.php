@@ -49,9 +49,7 @@
 		if(count($loginErrors)===0){
 			$password =md5($password);
 			//$sql = $conn->prepare("SELECT * FROM users where email='$email' AND password='$password'");
-			$sql1->bindParam(':email',$email, PDO::PARAM_STR);
-			$sql1->bindParam(':password',$password, PDO::PARAM_STR);
-			$sql1->execute();
+			$sql1->execute(array($email,$password));
 			$num_rows = $sql1->rowCount();
 			$result = $sql1->fetchAll(PDO::FETCH_ASSOC);
 
@@ -204,8 +202,8 @@
 			}
 		}
 
-		$sql =$conn->prepare("UPDATE users SET user_image='$filename',phone='$phone', address='$address' WHERE id=$id");
-		$sql->execute();
+		//$sql =$conn->prepare("UPDATE users SET user_image='$filename',phone='$phone', address='$address' WHERE id=$id");
+		$sql->execute(array($filename,$phone, $address,$id));
 
 		//delete old image and set new image
 		unlink("uploads/".$_SESSION['image']);
@@ -242,8 +240,8 @@
 				echo 'Password mismatch..current and db'."<br>";
 			}else{
 				//update user pass
-				$sql = $conn->prepare("UPDATE users SET password='$new_p' WHERE email='$email' ");
-            	$sql->execute();
+				//$sql = $conn->prepare("UPDATE users SET password='$new_p' WHERE email='$email' ");
+            	$sql->execute(array($new_p, $email));
 				header('location: index.php');
 			}
 

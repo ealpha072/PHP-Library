@@ -14,6 +14,12 @@
 						<span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
 					</div>
 					<input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+					<small id="emailHelp" class="form-text text-muted">
+						<?php 
+							if(isset($emailError)) echo $emailError;
+							if(isset($emailTakenError)) echo $emailTakenError;
+						?>
+					</small>
 				</div>
 
 				<!--fullname field-->
@@ -22,6 +28,7 @@
 						<span class="input-group-text" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
 					</div>
 					<input type="text" class="form-control" id="fullname" placeholder="Full name" name="username" required>
+					<small id="emailHelp" class="form-text text-muted"><?php if(isset($nameError)) echo $nameError;?></small>
 				</div>
 				
 				<!--phonenumber field-->
@@ -30,6 +37,7 @@
 						<span class="input-group-text" id="basic-addon1"><i class="fa fa-phone" aria-hidden="true"></i></span>
 					</div>
 					<input type="number" class="form-control" placeholder="Phone Number" name="phonenumber" required maxlength="10">
+					<small id="emailHelp" class="form-text text-muted"></small>
 				</div>
 
 				<!--course/year field-->
@@ -46,6 +54,7 @@
 						<option value="3">3rd Year</option>
 						<option value="4">4th Year</option>
 					</select>
+					<small id="emailHelp" class="form-text text-muted"></small>
 				</div>
 
 				<!--password_1 field-->
@@ -54,6 +63,7 @@
 						<span class="input-group-text" id="basic-addon1"><i class="fa fa-unlock" aria-hidden="true"></i></span>
 					</div>
 					<input type="password" class="form-control" id="password" placeholder="Password" name="password_1" required>
+					<small id="emailHelp" class="form-text text-muted"><?php if(isset($passwordError)) echo $passwordError;?></small>
 				</div>
 
 				<!--password_2 field-->
@@ -63,18 +73,21 @@
 						<span class="input-group-text" id="basic-addon1"><i class="fa fa-unlock" aria-hidden="true"></i></span>
 					</div>
 					<input type="password" class="form-control" id="" placeholder="Confirm Password" name="password_2" required>
+					<small id="emailHelp" class="form-text text-muted"><?php if(isset($mismatchError)) echo $mismatchError;?></small>
 				</div>
 
 				<!--userimage field-->
 				<div class="form-group input-group mb-3 b-lr-1">					
                         <div class="input-group-prepend prf"><span class="input-group-text ">Photo</span> </div>
                         <input type="file" class="form-control  text-sm"  name="userimage">
+						<small id="emailHelp" class="form-text text-muted"><?php if(isset($filetypeError)) echo $filetypeError;?></small>
 				</div>
 
 				<!--//address-->
 				<div class="form-group input-group mb-3 b-lr-1">					
                         <div class="input-group-prepend prf"><span class="input-group-text ">Address</span> </div>
                         <input type="text" class="form-control  text-sm"  name="address">
+						<small id="emailHelp" class="form-text text-muted"></small>
 				</div>
 
 

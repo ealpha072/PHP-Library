@@ -301,7 +301,7 @@
             </div>
         </div>
     </div>
-
+    <small id="emailHelp" class="form-text text-muted"></small>
 
 
     if(empty($email)){

@@ -117,7 +117,8 @@
 			$extension =pathinfo($filename, PATHINFO_EXTENSION);
 
 			if(!in_array($extension,['png','jpg','jpeg'])){
-					echo "You file extension type is not allowed";
+					$filetypeError= "You file extension type is not allowed";
+					array_push($regErrors,$filetypeError);
 				}else{
 					if(move_uploaded_file($file,$destination)){
 						echo "Success";
@@ -128,8 +129,8 @@
 			
 			//check for password match
 			if(!($password_1===$password_2)){
-				echo "Password mismatch, please provide matching passwords!";
-				array_push($error," Error");
+				$mismatchError= "Password mismatch, please provide matching passwords!";
+				array_push($error,$mismatchError);
 			}
 
 			//check if email exists in database

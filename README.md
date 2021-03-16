@@ -36,5 +36,5 @@ On loading of the page, a user can either register or login with his credentials
 * Show errors in the pages where they are required
 * remember to validate check box for remember me...code in remnants.php
 * Add validation for address/phone and maybe image...
-* Add divs for error displaying..
+* Add divs for error displaying...
 

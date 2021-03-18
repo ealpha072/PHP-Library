@@ -92,11 +92,15 @@
                 <!--password section-->
                 <div class=" tab-pane passwordchange" style="display: none;">                                            
                     <form class="form-horizontal" method="POST" action="">
-                        <input type="hidden" name="_token">
                         <div class="mb-2">
-                            <div class="input-group"><div class="input-group-prepend pass"><span class="input-group-text ">Current Password</span> </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend pass">
+                                    <span class="input-group-text ">Current Password</span>
+                                </div>
                                 <input type="password" class="form-control" name="current">
+                                <small id="emailHelp" class="form-text text-muted"><?php if(isset($passMismatch )) echo $passMismatch;?></small>
                             </div>
+
                         </div>
                         <div class="mb-2">
                             <div class="input-group">
@@ -105,6 +109,7 @@
                                 </div>
                                 <input type="password" class="form-control" name="new-p">
                             </div>
+                            <small id="emailHelp" class="form-text text-muted"><?php if(isset($updatePasswordError)) echo $updatePasswordError;?></small>
                         </div>
                         <div class="mb-2">
                             <div class="input-group">
@@ -113,6 +118,12 @@
                                 </div>
                                 <input type="password" class="form-control" name="confirm-p">
                             </div>
+                            <small id="emailHelp" class="form-text text-muted">
+                                <?php 
+                                    if(isset($mismatchError)) echo $mismatchError;
+                                               
+                                ?>
+                            </small> 
                         </div>
                         <div class="mb-2">
                             <div class="input-group">

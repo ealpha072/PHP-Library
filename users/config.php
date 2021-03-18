@@ -204,7 +204,7 @@
 		}
 
 		//$sql =$conn->prepare("UPDATE users SET user_image='$filename',phone='$phone', address='$address' WHERE id=$id");
-		$sql->execute(array($filename,$phone, $address,$id));
+		$sql4->execute(array($filename,$phone, $address,$id));
 
 		//delete old image and set new image
 		unlink("uploads/".$_SESSION['image']);
@@ -242,7 +242,7 @@
 			}else{
 				//update user pass
 				//$sql = $conn->prepare("UPDATE users SET password='$new_p' WHERE email='$email' ");
-            	$sql->execute(array($new_p, $email));
+            	$sql5->execute(array($new_p, $email));
 				header('location: index.php');
 			}
 

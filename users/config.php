@@ -218,6 +218,11 @@
 		$email =$_SESSION['user_email'];
 		$pass =$_SESSION['password'];
 		
+		if(strlen($password_1)<6){
+			$passwordError ="Password is too short, must be more than 6 characters";
+			array_push($regErrors, $updatePasswordError);
+		}
+
 		//get form inputs
 		$current =md5($_POST['current']);
 		$new_p=md5($_POST['new-p']);
@@ -238,7 +243,7 @@
 			if($current!=$pass){
 				$passMismatch ='Current password doesnt match your old password';
 				array_push($globalErrors,$passMismatch);
-				echo 'Password mismatch..current and db'."<br>";
+				//echo 'Password mismatch..current and db'."<br>";
 			}else{
 				//update user pass
 				//$sql = $conn->prepare("UPDATE users SET password='$new_p' WHERE email='$email' ");

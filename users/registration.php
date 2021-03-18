@@ -13,23 +13,23 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
 					</div>
-					<input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
-					<small id="emailHelp" class="form-text text-muted">
-						<?php 
-							if(isset($emailError)) echo $emailError;
-							if(isset($emailTakenError)) echo $emailTakenError;
-						?>
-					</small>
+					<input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>					
 				</div>
+				<small id="emailHelp" class="form-text text-muted">
+					<?php 
+						if(isset($emailError)) echo $emailError;
+						if(isset($emailTakenError)) echo $emailTakenError;
+					?>
+				</small>
 
 				<!--fullname field-->
 				<div class="form-group input-group mb-3">				
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
 					</div>
-					<input type="text" class="form-control" id="fullname" placeholder="Full name" name="username" required>
-					<small id="emailHelp" class="form-text text-muted"><?php if(isset($nameError)) echo $nameError;?></small>
+					<input type="text" class="form-control" id="fullname" placeholder="Full name" name="username" required>				
 				</div>
+				<small id="emailHelp" class="form-text text-muted "><?php if(isset($nameError)) echo $nameError;?></small>
 				
 				<!--phonenumber field-->
 				<div class="form-group input-group mb-3">				
@@ -58,13 +58,13 @@
 				</div>
 
 				<!--password_1 field-->
-				<div class="form-group input-group mb-3">
+				<div class="form-group input-group mb-3" >
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon1"><i class="fa fa-unlock" aria-hidden="true"></i></span>
 					</div>
 					<input type="password" class="form-control" id="password" placeholder="Password" name="password_1" required>
-					<small id="emailHelp" class="form-text text-muted"><?php if(isset($passwordError)) echo $passwordError;?></small>
 				</div>
+				<small id="emailHelp" class="form-text text-muted" ><?php if(isset($passwordError)) echo $passwordError;?></small>
 
 				<!--password_2 field-->
 				<div class="form-group input-group mb-3">
@@ -72,16 +72,16 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon1"><i class="fa fa-unlock" aria-hidden="true"></i></span>
 					</div>
-					<input type="password" class="form-control" id="" placeholder="Confirm Password" name="password_2" required>
-					<small id="emailHelp" class="form-text text-muted"><?php if(isset($mismatchError)) echo $mismatchError;?></small>
+					<input type="password" class="form-control" id="" placeholder="Confirm Password" name="password_2" required><br>					
 				</div>
+				<small id="emailHelp" class="form-text text-muted" ><?php if(isset($mismatchError)) echo $mismatchError;?></small>
 
 				<!--userimage field-->
 				<div class="form-group input-group mb-3 b-lr-1">					
                         <div class="input-group-prepend prf"><span class="input-group-text ">Photo</span> </div>
-                        <input type="file" class="form-control  text-sm"  name="userimage">
-						<small id="emailHelp" class="form-text text-muted"><?php if(isset($filetypeError)) echo $filetypeError;?></small>
+                        <input type="file" class="form-control  text-sm"  name="userimage" aria-describedby="emailHelp">					
 				</div>
+				<small id="emailHelp" class="form-text text-muted" ><?php if(isset($filetypeError)) echo $filetypeError;?></small>
 
 				<!--//address-->
 				<div class="form-group input-group mb-3 b-lr-1">					

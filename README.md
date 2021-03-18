@@ -30,11 +30,7 @@ On loading of the page, a user can either register or login with his credentials
 * Improve security to guard against attacks by:
   * Filtering form data
   * Hashing passwords
-  * Better sql queries ..prepared stmts
 * Add admin pages 
-* declare all prepare stmts at the beginning
-* Show errors in the pages where they are required
 * remember to validate check box for remember me...code in remnants.php
 * Add validation for address/phone and maybe image...
-* Add divs for error displaying...
-
+* Check on the password change error display

@@ -34,3 +34,4 @@ On loading of the page, a user can either register or login with his credentials
 * remember to validate check box for remember me...code in remnants.php
 * Add validation for address/phone and maybe image...
 * Check on the password change error display
+* Fix the error of search results displaying on top of profile page

@@ -248,7 +248,7 @@
 				//update user pass
 				//$sql = $conn->prepare("UPDATE users SET password='$new_p' WHERE email='$email' ");
             	$sql5->execute(array($new_p, $email));
-				header('location: index.php');
+				//header('location: index.php');
 			}
 
 		}

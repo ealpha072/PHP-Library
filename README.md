@@ -27,7 +27,7 @@ The admin can
 On loading of the page, a user can either register or login with his credentials. Once logged in, the user can view the number of books borrowed, credits earned, fines collected etc. Should there be inquiries, the user can contact the admin through a form. The dashboard contains links to various pages.
 
 ## To do 
-* Improve security to guard against attacks by:
+* Improve security to guard against attacks and SQL injectionsby:
   * Filtering form data
   * Hashing passwords
 * remember to validate check box for remember me...code in remnants.php

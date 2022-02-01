@@ -15,12 +15,8 @@ The admin can
 * Delete users 
 
 ## Technologies used
-* PHP
 * PHPmyadmin
 * SQL
-* Jquery
-* Bootstrap
-* CSS
 
 ## How it works
 
